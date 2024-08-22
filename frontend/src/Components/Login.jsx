@@ -63,7 +63,7 @@ function Login() {
                     
 
                     <div className="form-group">
-                        <button type="button">Login</button>
+                        <button type="submit">Login</button>
                     </div>
                     <h4 className="fs-6"><b>Don't have an account? SignUp</b></h4>
                     
