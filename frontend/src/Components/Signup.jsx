@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import { FaLock, FaUser } from "react-icons/fa";
-import "../CSS/Login.css";
+import { IoMdContacts } from "react-icons/io";
+import { MdEmail } from "react-icons/md";
+import "../CSS/Signup.css";
 
 
 function Login() {
     const [formData, setFormData] = useState('');
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const[contact, setContact]=useState('');
     const [error, setError] = useState('');
     const handleChange = (e) => {
         setFormData({
@@ -31,9 +35,9 @@ function Login() {
             <div className="login-container " >
 
                 <form onSubmit={handleSubmit}>
-                    <h2 className="mb-4">WELCOME!</h2>
+                    <h2 className="mb-4 fs-5"><b><u>Signup for new account</u></b></h2>
                     <div className="form-group">
-                        <label><FaUser className="icon"/><b>Username</b></label>
+                        <label><FaUser className="icon"/><b>UserName:</b></label>
 
 
 
@@ -50,22 +54,35 @@ function Login() {
                         <input type="password" id="password" placeholder="password" onChange={handleChange} required />
                         
                     </div>
+                    
+                    
+                    
+                    <div className="form-group">
+                        <label><MdEmail className="icon"/><b>Email:</b></label>
+
+
+
+
+                        <input type="email" id="password" placeholder="email" onChange={handleChange} required />
+                        
+                    </div>
+                    <div className="form-group">
+                        <label><IoMdContacts className="icon"/><b>Contacts:</b></label>
+
+
+
+
+                        <input type="contacts" id="contacts" placeholder="contacts" onChange={handleChange} required />
+                        
+                    </div>
+                     
                      
                     
 
-                     <div className="box">
-
-                        
-                        
-                        <label><input type="checkbox" />  <b>Remember me</b> </label>
-
-                    </div> 
-                    
-
-                    <div className="form-group">
-                        <button type="button">Login</button>
+                    <div className="form-group mt-2">
+                        <button type="button">SignIn</button>
                     </div>
-                    <h4 className="fs-6"><b>Don't have an account? SignUp</b></h4>
+                    <h4 className="fs-6"><b>Already have an account? Login</b></h4>
                     
 
                 </form>
