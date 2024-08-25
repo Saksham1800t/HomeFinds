@@ -27,7 +27,7 @@ function Login() {
 
     return (
         <>
-            {/* <div style={{backgroundImage:`url(${background})`,backgroundSize:"80vh"}}> */}
+        <div className='login-bg'>
             <div className="login-container " >
 
                 <form onSubmit={handleSubmit}>
@@ -70,7 +70,7 @@ function Login() {
 
                 </form>
             </div>
-            {/* </div> */}
+            </div>
         </>
     );
 
