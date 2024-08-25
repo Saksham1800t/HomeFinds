@@ -17,15 +17,13 @@
     
   }
 
-  body{
+  .login-bg{
     background-image: url(../Images/bg.avif);
     align-items:center;
     justify-content:center;
     display:flex;
     background-repeat: no-repeat;
     background-size: 100%;
-    
-    
   } 
   .login-container label {
     margin: 0.8em 0 0.8em 1.8rem; /*top right bottom left*/

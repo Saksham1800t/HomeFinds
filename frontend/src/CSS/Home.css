@@ -52,7 +52,7 @@
   .midbtn:hover {
     border: 2px solid rgb(0, 0, 0);
     color: rgb(0, 0, 0);
-    background-color: 	#ffcd80;
+    background-color: 	rgb(223, 177, 93);
   }
   .card .card-body button:hover {
     background-color: #2b1cff3f;
