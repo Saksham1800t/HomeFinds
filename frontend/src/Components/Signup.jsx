@@ -80,7 +80,7 @@ function Login() {
                     
 
                     <div className="form-group mt-2">
-                        <button type="button">SignIn</button>
+                        <button type="submit">SignIn</button>
                     </div>
                     <h4 className="fs-6"><b>Already have an account? Login</b></h4>
                     
