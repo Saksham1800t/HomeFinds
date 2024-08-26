@@ -1,4 +1,8 @@
-
+.background{
+    
+    width:100%;
+    height:100%;
+}
 .box{
     height:100vh;
     width:100%;
@@ -7,38 +11,79 @@ button{
     background:rgb(223, 177, 93);;
     color:black;
     border:none;
-    margin: 2rem 4rem  0 0;
+    margin: 0rem 4rem  2rem 0;
     height:50px;
     width: 100px;
     padding: 10px 20px;
+    margin-left:5rem;
+    outline:none;
+    border-radius:3px;
+
+    
+}
+button:hover{
+    box-shadow: rgba(0, 0, 0, 0.48) 5px 6px 10px 0px;
+    transition:800ms;
 }
  .img{
-    width:20px;
-    height:20px;
+    width:30rem;
+    height:30rem;
 } 
 .Detail{
-    margin : 6rem  30rem 0 0; /*1rem=16px*/
+    margin : 6rem  25rem 0 2rem; /*1rem=16px */
+    background:rgb(240, 238, 238);
+    height:400px;
+    box-shadow: rgba(0, 0, 0, 0.48) 5px 6px 10px 0px;
+    border-radius:5px;
+    width:1000px;
 
+}
+body{
+    background: rgb(230, 230, 230);
 }
 .price{
     background:rgb(240, 238, 238);
     height:140px;
-    width:100%;
+    width:350px;
     padding:20px 30px;
+    margin-left:2rem;
 }
 
 .data{
-    background:rgb(240, 238, 238);
+    background:rgb(230, 230, 230);
     height:100%;
-    width:80%;
+    width:100%;
     padding:20px 30px;
     margin-top:1rem;
+    box-shadow: rgba(0, 0, 0, 0.48) 5px 6px 10px 0px;
+    border-radius: 5px;
 }
 .Des{
-    background:rgb(240, 238, 238);
+    background: rgb(230, 230, 230);
     padding:20px 30px;
     height:80px;
-    width:80%;
-    margin-top:1.5rem;
+    width:100%;
+    margin-top:1rem;
+    box-shadow: rgba(0, 0, 0, 0.48) 5px 6px 10px 0px;
+    border-radius: 5px;
     
+}
+.image{
+    width:50px;
+    height:50px;
+    border-radius:100%;
+    
+    
+
+}
+.seller{
+    background:rgb(240, 238, 238);
+    height:140px;
+    width:600px;
+    padding:20px 30px 2px 20px;
+    margin-top:1rem; 
+    margin-left:3rem;
+}
+.heading{
+    margin-left:2rem;
 }

@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom/client';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import BuyNow from './Components/BuyPage';
+import BuyNow from './Components/BuyNow';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
