@@ -1,10 +1,10 @@
 import React from "react";
-import newbg from "../Images/HomeBg.png";
 import buy from "../Images/srBuy.jpeg";
 import sell from "../Images/srSell.jpeg";
 import rent from "../Images/srRent.jpeg";
 import { useTypewriter } from "react-simple-typewriter";
-import "../CSS/Home.css"
+import "../CSS/Home.css";
+import newbg from "../Images/Bghome.jpg";
 
 export default function Home() {
 
@@ -18,20 +18,19 @@ export default function Home() {
         <>
             <div className="BG">
                 <div>
-                    <img class="container-fluid chochomelon" src={newbg} alt="" />
+                    <img class="chochomelon" src={newbg} alt="" />
                     <div
-                        className="position-absolute top-50 start-50 translate-middle w-100"
-                        style={{  marginLeft: "70px" }}
+                        className="position-absolute top-50 start-50 translate-middle w-100 yoho text-monosapce"
                     >
-                        <h1 className="text-secondary text-dark midtext mb-5" ><b>HOMEFINDS</b></h1>
+                        <h1 className="text-secondary text-light midtext mb-5" ><b>HOMEFINDS</b></h1>
                         <h1
-                            className="text-secondary text-dark midtext"
+                            className="text-secondary text-light midtext"
                         >
                             FIND <b style={{ color: "rgb(223, 177, 93)" }}>ITEMS</b> FOR
                         </h1>
 
                         <h1
-                            className="text-secondary text-dark midtext"
+                            className="text-secondary text-light midtext"
                         >
                             #{text2}
                         </h1>
@@ -41,7 +40,7 @@ export default function Home() {
                                 type="button"
                                 class="btn  btn-lg rounded-pill mx-2 midbtn"
                             >
-                               FOR BUY 
+                                <b>FOR BUY </b>
                             </button>
                             <button
                                 type="button"
@@ -56,8 +55,8 @@ export default function Home() {
 
                 <div className="mt">
                     <h4 class=" text-secondary ms-5 lol sizeText "> SERVICES WE  <b style={{ color: "rgb(223, 177, 93)" }}> PROVIDE.</b></h4>
-                   
-                       ``
+
+                    ``
                 </div>
 
                 <div className="d-flex justify-content-lg-around mtcards">
