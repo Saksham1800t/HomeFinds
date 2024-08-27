@@ -6,14 +6,14 @@ import ReactDOM from 'react-dom/client';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import BuyNow from './Components/BuyNow';
+
+import ProductAdd from './Components/ProductAdd';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BuyNow/>
+    <ProductAdd/>
   </React.StrictMode>
 );
 
