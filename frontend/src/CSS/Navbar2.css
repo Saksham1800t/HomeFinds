@@ -1,0 +1,74 @@
+.navbar {
+    background: transparent;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    padding: 10px 0;
+    height: 80px;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.logo h1 {
+    color: white;
+    font-size: 24px;
+    margin: 0;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    color: white;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.login{
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    margin: .4rem 0 0 37rem;
+    height: 40px;
+    width: 70px;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
+.nav-links li {
+    text-decoration: none;
+    list-style: none;
+}
+
+button:hover {
+    box-shadow: rgba(0, 0, 0, 0.48) 5px 6px 10px 0px;
+    transition: 800ms;
+}
+
+.image {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin-left: 2rem;
+}
+
+.signup {
+    margin-left: 3rem;
+}
+
+.logo {
+    width: 110px;
+    height: 30px;
+}
+
+.right {
+    list-style: none;
+}
