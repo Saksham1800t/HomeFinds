@@ -1,10 +1,11 @@
 import React from "react";
-import buy from "../Images/srBuy.jpeg";
-import sell from "../Images/srSell.jpeg";
-import rent from "../Images/srRent.jpeg";
+import buy from "../../Images/srBuy.jpeg";
+import sell from "../../Images/srSell.jpeg";
+import rent from "../../Images/srRent.jpeg";
 import { useTypewriter } from "react-simple-typewriter";
-import "../CSS/Home.css";
-import newbg from "../Images/Bghome.jpg";
+import "../../CSS/Home.css";
+import newbg from "../../Images/Bghome.jpg";
+import Navbar from "./Navbar2";
 
 export default function Home() {
 
@@ -17,8 +18,11 @@ export default function Home() {
     return (
         <>
             <div className="BG">
-                <div>
+                <div> 
                     <img class="chochomelon" src={newbg} alt="" />
+                    <div className="position-absolute fixed-top">
+                        <Navbar />
+                    </div>
                     <div
                         className="position-absolute top-50 start-50 translate-middle w-100 yoho text-monosapce"
                     >
