@@ -5,7 +5,7 @@ import rent from "../../Images/srRent.jpeg";
 import { useTypewriter } from "react-simple-typewriter";
 import "../../CSS/Home.css";
 import newbg from "../../Images/Bghome.jpg";
-import Navbar from "./Navbar2";
+import Navbar2 from "./Navbar2";
 
 export default function Home() {
 
@@ -18,10 +18,10 @@ export default function Home() {
     return (
         <>
             <div className="BG">
-                <div> 
+                <div>
                     <img class="chochomelon" src={newbg} alt="" />
                     <div className="position-absolute fixed-top">
-                        <Navbar />
+                        <Navbar2 />
                     </div>
                     <div
                         className="position-absolute top-50 start-50 translate-middle w-100 yoho text-monosapce"
@@ -42,7 +42,7 @@ export default function Home() {
                         <div className="d-flex flex-row justify-content-centre float-end midb ">
                             <button
                                 type="button"
-                                class="btn  btn-lg rounded-pill mx-2 midbtn"
+                                class="btn btn-lg rounded-pill mx-2 midbtn"
                             >
                                 <b>FOR BUY </b>
                             </button>
@@ -58,7 +58,7 @@ export default function Home() {
                 </div>
 
                 <div className="mt">
-                    <h4 class=" text-secondary ms-5 lol sizeText "> SERVICES WE  <b style={{ color: "rgb(223, 177, 93)" }}> PROVIDE.</b></h4>
+                    <h4 class=" text-secondary ms-5 lol sizeText_Home "> SERVICES WE  <b style={{ color: "rgb(223, 177, 93)" }}> PROVIDE.</b></h4>
 
                     ``
                 </div>

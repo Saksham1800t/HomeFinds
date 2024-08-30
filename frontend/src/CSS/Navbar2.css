@@ -36,11 +36,12 @@
     text-decoration: none;
     background: transparent;
     border: none;
-    margin: .4rem 0 0 37rem;
+    margin: .4rem 0 0 34rem;
     height: 40px;
     width: 70px;
     border-radius: 5px;
     border: 2px solid black;
+    padding: 10px 69px 30px 20px;
 }
 
 .nav-links li {
@@ -52,6 +53,7 @@ button:hover {
     box-shadow: rgba(0, 0, 0, 0.48) 5px 6px 10px 0px;
     transition: 800ms;
 }
+
 
 .image {
     width: 50px;

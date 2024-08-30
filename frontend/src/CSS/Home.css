@@ -17,7 +17,7 @@
     background-image: linear-gradient(180deg#d6e9e9, #e2eaf5);
   }
   
-  .sizeText {
+  .sizeText_Home {
     font-size: 70px;
   }
   .sizeText2 {
@@ -47,6 +47,7 @@
   }
   .midbtn {
     background-color: white;
+    width: 8rem;
     border: 2px solid rgb(0, 0, 0);
   }
   .midbtn:hover {
