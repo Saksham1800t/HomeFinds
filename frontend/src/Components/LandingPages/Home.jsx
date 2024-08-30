@@ -44,13 +44,13 @@ export default function Home() {
                                 type="button"
                                 class="btn btn-lg rounded-pill mx-2 midbtn"
                             >
-                                <b>FOR BUY </b>
+                                <b>Buy Items</b>
                             </button>
                             <button
                                 type="button"
                                 class="btn btn-lg rounded-pill mx-2 midbtn"
                             >
-                                FOR RENT
+                                <b>Rent Items</b>
                             </button>
 
                         </div>

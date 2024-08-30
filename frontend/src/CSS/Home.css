@@ -38,7 +38,7 @@
     font-size: 70px;
   }
   .midb {
-    margin-right: 155vh;
+    margin-right: 150vh;
     margin-top: 30px;
   }
   a {
@@ -47,7 +47,7 @@
   }
   .midbtn {
     background-color: white;
-    width: 8rem;
+    width: 9rem;
     border: 2px solid rgb(0, 0, 0);
   }
   .midbtn:hover {

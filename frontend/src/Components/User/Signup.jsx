@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FaLock, FaUser } from "react-icons/fa";
 import { IoMdContacts } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
-import "../CSS/Signup.css";
+import "../../CSS/Signup.css";
 
 
 function Login() {
