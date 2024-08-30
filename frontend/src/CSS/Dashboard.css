@@ -1,0 +1,45 @@
+.product{
+    width:22rem;
+    height:12rem;
+    background-color: white;
+    box-shadow:rgb(20, 20, 20) 0px 8px 20px;
+    border: 1px solid black;
+    
+   
+    border-radius:10px;
+}
+.product:hover{
+    background-color: rgb(223, 177, 93);
+    box-shadow:rgb(236, 210, 161) 0px 8px 20px;
+}
+.pro:hover{
+    background-color: rgb(223, 177, 93);
+    box-shadow:rgb(236, 210, 161) 0px 8px 20px;
+}
+h3{
+    padding:48px 0 0 40px;
+}
+h3:hover{
+    font-size:30px;
+}
+.icon{
+   margin-right:15px;
+   
+}
+.icon:hover{
+    font-size:40px;
+}
+.pro{
+    width:22rem;
+    height:12rem;
+    border:1px solid black;
+    border-radius:10px;
+    background-color: white;
+    box-shadow:rgb(10, 10, 10) 0px 8px 20px;
+    
+}
+.dash{
+     display:grid;
+     grid: 250px / 30rem auto ;
+     margin:7rem 0 0 20rem;
+}

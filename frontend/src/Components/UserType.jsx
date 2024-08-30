@@ -4,7 +4,7 @@ import '../CSS/UserType.css';
 export default function UserType() {
     return (
         <div class="main">
-            <h1>Who are you ?</h1>
+            <h1>Who Are You ?</h1>
             <h1>BUYER or SELLER</h1>
             <h3>Please Select Before Signup</h3>
             <div>
