@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import { FaBars, FaHome, FaUser } from "react-icons/fa";
 import { FaUserPlus } from "react-icons/fa6";
 import { MdSupervisedUserCircle } from "react-icons/md";
-import '../CSS/Sidebar.css'; // You can add styles in a separate file.
-import profile from '../Images/profile.jpg';
+import '../../CSS/Sidebar.css'; // You can add styles in a separate file.
+import profile from '../../Images/profile.jpg';
 
 const Admin = () => {
   const [isOpen, setIsOpen] = useState(true);

@@ -2,8 +2,7 @@ import React from 'react';
 import { FaCartPlus, FaUserPlus } from "react-icons/fa6";
 import { IoMdGitPullRequest } from "react-icons/io";
 import { MdProductionQuantityLimits } from "react-icons/md";
-import '../CSS/Dashboard.css';
-import Sidebar from './Sidebar';
+import '../../CSS/Dashboard.css';
 
 
 function Dashboard(){
