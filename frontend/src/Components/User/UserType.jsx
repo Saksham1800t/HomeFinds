@@ -13,7 +13,7 @@ export default function UserType() {
                 </button>
                 <button>
                     <h3>SELLER</h3>
-                </button>
+                </button> 
             </div>
         </div>
     );
