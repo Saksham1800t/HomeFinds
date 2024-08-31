@@ -4,13 +4,13 @@
     background-color: white;
     box-shadow:rgb(20, 20, 20) 0px 8px 20px;
     border: 1px solid black;
-    
+    margin-right:5rem;
    
     border-radius:10px;
 }
 .product:hover{
     background-color: rgb(223, 177, 93);
-    box-shadow:rgb(236, 210, 161) 0px 8px 20px;
+    box-shadow:rgb(236, 210, 161) 0px 8x 20px;
 }
 .pro:hover{
     background-color: rgb(223, 177, 93);
@@ -40,6 +40,6 @@ h3:hover{
 }
 .dash{
      display:grid;
-     grid: 250px / 30rem auto ;
-     margin:7rem 0 0 20rem;
+     grid: 250px / 25rem auto 20rem ;
+     margin:7rem 0 0 25rem;
 }

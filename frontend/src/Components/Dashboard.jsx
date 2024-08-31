@@ -3,11 +3,13 @@ import { FaCartPlus, FaUserPlus } from "react-icons/fa6";
 import { IoMdGitPullRequest } from "react-icons/io";
 import { MdProductionQuantityLimits } from "react-icons/md";
 import '../CSS/Dashboard.css';
+import Sidebar from './Sidebar';
 
 
 function Dashboard(){
     return(
         <div className="dash">
+            <div><Sidebar/></div>
             <div className="product ">
                 <h3><MdProductionQuantityLimits className="icon" /><b>Products for buy</b></h3>
                 <h3><b>0</b></h3>
