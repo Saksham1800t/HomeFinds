@@ -1,4 +1,4 @@
-.login-container {
+.login-container_Signup {
     max-width: 500px;
     margin: 80px;
     padding: 1em;
@@ -14,7 +14,7 @@
     
     
   }
-  body{
+  /* .login-container_Signup{
     justify-content:center;
     max-height:80vh;
     padding:30px 40px;
@@ -24,14 +24,14 @@
     display:flex;
     background-repeat: no-repeat;
     background-size: 100%; 
-  }
+  } */
 
  
-  .login-container label {
+   .label_Signup {
     margin: 0.8em 0 0.8em 1.8rem; /*top right bottom left*/
     display: block;
   }
- .login-container button{
+  .button_Signup{
     width:90%;
     height:50px;
     background:rgb(223, 177, 93);
@@ -47,7 +47,7 @@
   }
   
 
-  .form-group .icon{
+ .icon_Signup{
     position:relative;
     right:20px;
     top:50%;
@@ -57,7 +57,7 @@
     
     /* transform:translateY(-10%);  */
   }
-  .form-group input{
+  .input_Signup{
         width:90%;
         height:50px;
        

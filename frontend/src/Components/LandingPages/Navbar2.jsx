@@ -1,8 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../../CSS/Navbar2.css'; // Import CSS for additional styling
 import logo from '../../Images/logo.png';
 import profile from '../../Images/profile.jpg';
-import { Link } from 'react-router-dom';
 
 function Navbar() {
     return (
@@ -12,7 +12,7 @@ function Navbar() {
                     <ul className="nav-links_Navbar2">
                         <li><img src={logo} className="logo_Navbar2"></img></li>
                         <li>|</li>
-                        <li><Link to="/"><b>Home</b></Link></li>
+                        <li><Link to="/login"><b>Home</b></Link></li>
                         <li>|</li>
                         <li><a href="#about"><b>About</b></a></li>
                         <li>|</li>

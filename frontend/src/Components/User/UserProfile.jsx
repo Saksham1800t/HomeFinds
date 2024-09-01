@@ -1,9 +1,10 @@
 import React from 'react';
-import '../CSS/UserProfile.css'; // Import your custom CSS file
-import user from '../Images/user.jpg';
+import '../../CSS/UserProfile.css'; // Import your custom CSS file
+import user from '../../Images/user.jpg';
 
 const UserProfile = () => {
     return (
+        <div className="body_UserProfile">
         <div class="page-content page-container" id="page-content">
             <div class="padding">
                 <div class="row container d-flex justify-content-center">
@@ -55,6 +56,7 @@ const UserProfile = () => {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     );
 };

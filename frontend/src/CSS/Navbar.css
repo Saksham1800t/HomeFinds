@@ -36,12 +36,14 @@
   }
   button{
     text-decoration: none;
-    background:rgb(223, 177, 93);
-    border:none;
+    background:transparent;
+    border:1px solid black;
     margin-left: 28rem;
     height:40px;
-    width:70px;
+    width:90px;
     border-radius:5px;
+    box-shadow:rgb(240, 208, 150) 0px 4px 10px ;
+
     
   }
   
@@ -63,11 +65,13 @@
     margin-left:3rem;
   }
   .logo{
-    width:120px;
+    width:140px;
     height:60px;
    
     
     background-color: black;
+    border-radius: 20px;
+ 
   }
   .right{
     list-style:none;
