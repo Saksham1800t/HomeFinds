@@ -5,16 +5,16 @@ import logo from '../../Images/logo.png';
 import profile from '../../Images/profile.jpg';
 
 function Navbar() {
-    return (
-        <nav className="navbar_Navbar2">
+    return ( 
+        <nav className="navbar_Navbar2">    
             <div className="navbar-container_Navbar2">
                 <div>
                     <ul className="nav-links_Navbar2">
                         <li><img src={logo} className="logo_Navbar2"></img></li>
                         <li>|</li>
-                        <li><Link to="/login"><b>Home</b></Link></li>
+                        <li><Link to="/"><b>Home</b></Link></li>
                         <li>|</li>
-                        <li><a href="#about"><b>About</b></a></li>
+                        <li><Link to="#about"><b>About</b></Link></li>
                         <li>|</li>
                         <li><a href="#services"><b>Services</b></a></li>
                         <li>|</li>
@@ -23,7 +23,7 @@ function Navbar() {
                 </div>
                 <div>
                     <ul className="d-flex right_Navbar2">
-                        <li><button className='login_Navbar2'><b>LogIn</b></button></li>
+                        <li><Link to="/Login"><button className='login_Navbar2'><b>LogIn</b></button></Link></li>
                         <li><button className="signup_Navbar2 login_Navbar2"><b>SignUp</b></button></li>
                         <li><img src={profile} className="image_Navbar2"></img></li>
                     </ul>
