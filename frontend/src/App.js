@@ -27,29 +27,29 @@ function App() {
       element: <Login />,
     },
     {
-      path:'/Signup',
-      element:<Signup/>,
+      path: '/Signup',
+      element: <Signup />,
     },
-{
-  path:'/RentNow',
-  element:<RentNow/>,
-},
-{
-  path:'/UserType',
-  element:<UserType/>,
-},
-{
-  path:'/UserProfile',
-  element:<UserProfile/>,
-},
+    {
+      path: '/RentNow',
+      element: <RentNow />,
+    },
+    {
+      path: '/UserType',
+      element: <UserType />,
+    },
+    {
+      path: '/UserProfile',
+      element: <UserProfile />,
+    },
 
   ])
   return (
-   <>
-   <RouterProvider router={router}/>
-   </>
+    <>
+      <RouterProvider router={router} />
+    </>
   );
 }
-  export default App;
+export default App;
 
 

@@ -42,7 +42,7 @@ const UserProfile = () => {
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <p class="m-b-10 f-w-600">Address</p>
-                                                <h6 class="text-muted f-w-400">Sam Disujaewjfhbdskfhbdwkfbdskbfwdkfbkjkrfkjsbdkfjdbsfkjbdskfjb</h6>
+                                                <h6 class="text-muted f-w-400">Hindustan college</h6>
                                             </div>
                                             <div class="col-sm-2">
                                                 <p class="m-b-10 f-w-600">Pincode</p>
