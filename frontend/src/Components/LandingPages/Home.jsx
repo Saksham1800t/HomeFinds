@@ -65,7 +65,7 @@ export default function Home() {
 
                 <div className="d-flex justify-content-lg-around mtcards">
                     <div
-                        className="card w-25"
+                        className="card_Home w-25"
                         style={{
                             backgroundColor: "white",
                             height: "500px",
@@ -85,7 +85,7 @@ export default function Home() {
                     </div>
 
                     <div
-                        className="card w-25 p"
+                        className="card_Home w-25 p"
                         style={{
                             backgroundColor: "white",
                             height: "500px",
@@ -105,7 +105,7 @@ export default function Home() {
                     </div>
 
                     <div
-                        class="card w-25  "
+                        class="card_Home w-25  "
                         style={{
                             backgroundColor: "white",
                             height: "500px",

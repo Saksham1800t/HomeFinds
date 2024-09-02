@@ -1,73 +1,62 @@
 .login-container_Signup {
-    max-width: 500px;
-    margin: 80px;
-    padding: 1em;
-    background:transparent;
-    border:2px solid rgba(255,255,255,.2);
-    backdrop-filter:blur(30px);
-    box-shadow:0 0 10px rgba(0,0,0, .2);
-    border-radius: 8px;
-    display:flex;
+  max-width: 500px;
+  margin: 80px;
+  padding: 1em;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, .2);
+  backdrop-filter: blur(30px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+  border-radius: 8px;
+  display: flex;
 
-    align-items:center;
-    
-    
-    
-  }
-  /* .login-container_Signup{
-    justify-content:center;
-    max-height:80vh;
-    padding:30px 40px;
-    background-image: url(../Images/bg.avif);
-    align-items:center;
-    justify-content:center;
-    display:flex;
-    background-repeat: no-repeat;
-    background-size: 100%; 
-  } */
+  align-items: center;
 
- 
-   .label_Signup {
-    margin: 0.8em 0 0.8em 1.8rem; /*top right bottom left*/
-    display: block;
-  }
-  .button_Signup{
-    width:90%;
-    height:50px;
-    background:rgb(223, 177, 93);
-    border:none;
-    border-radius:40px;
-    margin:0.6em 0; 
-    
-    cursor:pointer;
-    font-size:16px;
-    color:#333;
-    font-weight:700;
-    box-shadow:0 0 10px rgba(0,0,0,.1);
-  }
-  
 
- .icon_Signup{
-    position:relative;
-    right:20px;
-    top:50%;
-    font-size:16px;
-   
-    
-    
-    /* transform:translateY(-10%);  */
-  }
-  .input_Signup{
-        width:90%;
-        height:50px;
-       
-        border:none;
-        outline:none;
-        border-radius:25px;
-        font-size:16px;
-        background:white;
-        color:black;
-        padding:20px 45px 20px 20px;
-  }
 
-  
+}
+
+.label_Signup {
+  margin: 0.8em 0 0.8em 1.8rem;
+  /*top right bottom left*/
+  display: block;
+}
+
+.button_Signup {
+  width: 90%;
+  height: 50px;
+  background: rgb(223, 177, 93);
+  border: none;
+  border-radius: 40px;
+  margin: 0.6em 0;
+
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+}
+
+
+.icon_Signup {
+  position: relative;
+  right: 20px;
+  top: 50%;
+  font-size: 16px;
+
+
+
+  /* transform:translateY(-10%);  */
+}
+
+.input_Signup {
+  width: 90%;
+  height: 50px;
+
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  font-size: 16px;
+  background: white;
+  color: black;
+  padding: 20px 45px 20px 20px;
+}

@@ -1,4 +1,4 @@
-body {
+.yo_AdminLogin {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -10,7 +10,7 @@ body {
     margin: 0;
 }
 
-.main {
+.main_AdminLogin {
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
@@ -20,11 +20,11 @@ body {
     text-align: center;
 }
 
-h1 {
+.h1_AdminLogin {
     color: rgb(223, 177, 93);
 }
 
-label {
+.label_AdminLogin {
     display: block;
     width: 100%;
     margin-top: 10px;
@@ -35,7 +35,7 @@ label {
 }
 
 
-input {
+.input_AdminLogin {
     display: block;
     width: 100%;
     margin-bottom: 15px;
@@ -45,7 +45,7 @@ input {
     border-radius: 5px;
 }
 
-button {
+.button_AdminLogin {
     padding: 15px;
     border-radius: 10px;
     margin-top: 15px;
@@ -58,7 +58,7 @@ button {
     font-size: 16px;
 }
 
-.wrap {
+.wrap_AdminLogin {
     display: flex;
     justify-content: center;
     align-items: center;

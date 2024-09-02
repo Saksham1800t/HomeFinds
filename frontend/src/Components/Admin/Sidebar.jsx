@@ -16,34 +16,33 @@ const Admin = () => {
 
   return (
     <div>
-     
-     <button className="sidebar-toggle" onClick={toggleSidebar}> 
-      <FaBars  className="mx-2 mt-1 fs-5" onClick={toggle} />
+
+      <button className="sidebar-toggle" onClick={toggleSidebar}>
+        <FaBars className="mx-2 mt-1 fs-5" onClick={toggle} />
         <b>
-        {isOpen ? 'Close Sidebar' : 'Open'}
+          {isOpen ? 'Close Sidebar' : 'Open'}
         </b>
-       </button> 
-  
-     
+      </button>
+
+
       <div className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
-        <div className="d-flex mx-4 mb-2 ">
-        <h5>HOMEFINDS</h5>
-        
-      <FaBars  className="mx-3 mt-1" onClick={toggle} />
-      </div>
-      <div>
-        <img src={profile}></img>
-        <h4>Admin</h4>
-     </div>
-        <ul><hr/>
-          <li><a href="#home"><FaHome className="icon"/><b>Home</b></a></li><hr/>
-          <li><a href="#about"><FaUserPlus className="icon" /><b>Users</b></a></li><hr/>
-          <li><a href="#services"><MdSupervisedUserCircle className="icon"/><b>Buyers</b></a></li><hr/>
-          <li><a href="#contact"><FaUser className="icon"/><b>Sellers</b></a></li><hr/>
+        <div className="d-flex mb-2 ">
+          <FaBars className="mx-3 mt-1 icon_sidebar" onClick={toggle} />
+          <h5>HOMEFINDS</h5>
+        </div>
+        <div>
+          <img className='img_sidebar' src={profile}></img>
+          <h4 className='h4_sidebar'>ADMIN</h4>
+        </div>
+        <ul className='ul_sidebar'><hr />
+          <li className='li_sidebar'><a className='a_sidebar' href="#home"><FaHome className="icon_sidebar" /><b>Home</b></a></li><hr />
+          <li className='li_sidebar'><a className='a_sidebar' href="#about"><FaUserPlus className="icon_sidebar" /><b>Users</b></a></li><hr />
+          <li className='li_sidebar'><a className='a_sidebar' href="#services"><MdSupervisedUserCircle className="icon_sidebar" /><b>Buyers</b></a></li><hr />
+          <li className='li_sidebar'><a className='a_sidebar' href="#contact"><FaUser className="icon_sidebar" /><b>Sellers</b></a></li><hr />
         </ul>
       </div>
-      </div>
-    
+    </div>
+
   );
 };
 

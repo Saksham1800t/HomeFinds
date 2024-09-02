@@ -7,6 +7,10 @@ import Login from './Components/User/Login';
 import Signup from './Components/User/Signup';
 import UserProfile from './Components/User/UserProfile';
 import UserType from './Components/User/UserType';
+import AdminLogin from './Components/Admin/AdminLogin';
+import AdminDashboard from './Components/Admin/Dashboard';
+import BuyPage from './Components/BuyPage';
+import RentPage from './Components/RentPage';
 
 function App() {
   const router = createBrowserRouter([
@@ -27,29 +31,44 @@ function App() {
       element: <Login />,
     },
     {
-      path:'/Signup',
-      element:<Signup/>,
+      path: '/Signup',
+      element: <Signup />,
     },
-{
-  path:'/RentNow',
-  element:<RentNow/>,
-},
-{
-  path:'/UserType',
-  element:<UserType/>,
-},
-{
-  path:'/UserProfile',
-  element:<UserProfile/>,
-},
-
+    {
+      path: '/RentNow',
+      element: <RentNow />,
+    },
+    {
+      path: '/UserType',
+      element: <UserType />,
+    },
+    {
+      path: '/UserProfile',
+      element: <UserProfile />,
+    },
+    {
+      path: '/AdminLogin',
+      element: <AdminLogin />
+    },
+    {
+      path: '/AdminDashboard',
+      element: <AdminDashboard />
+    },
+    {
+      path: '/BuyPage',
+      element: <BuyPage />
+    },
+    {
+      path: '/RentPage',
+      element: <RentPage />
+    }
   ])
   return (
-   <>
-   <RouterProvider router={router}/>
-   </>
+    <>
+      <RouterProvider router={router} />
+    </>
   );
 }
-  export default App;
+export default App;
 
 
