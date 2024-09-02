@@ -7,7 +7,6 @@ import Login from './Components/User/Login';
 import Signup from './Components/User/Signup';
 import UserProfile from './Components/User/UserProfile';
 import UserType from './Components/User/UserType';
-import Login from './Components/User/Login';
 import AdminLogin from './Components/Admin/AdminLogin';
 import AdminDashboard from './Components/Admin/Dashboard';
 import BuyPage from './Components/BuyPage';
