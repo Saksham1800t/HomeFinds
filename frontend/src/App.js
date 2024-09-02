@@ -7,6 +7,11 @@ import Login from './Components/User/Login';
 import Signup from './Components/User/Signup';
 import UserProfile from './Components/User/UserProfile';
 import UserType from './Components/User/UserType';
+import Login from './Components/User/Login';
+import AdminLogin from './Components/Admin/AdminLogin';
+import AdminDashboard from './Components/Admin/Dashboard';
+import BuyPage from './Components/BuyPage';
+import RentPage from './Components/RentPage';
 
 function App() {
   const router = createBrowserRouter([
@@ -42,7 +47,22 @@ function App() {
       path: '/UserProfile',
       element: <UserProfile />,
     },
-
+    {
+      path: '/AdminLogin',
+      element: <AdminLogin />
+    },
+    {
+      path: '/AdminDashboard',
+      element: <AdminDashboard />
+    },
+    {
+      path: '/BuyPage',
+      element: <BuyPage />
+    },
+    {
+      path: '/RentPage',
+      element: <RentPage />
+    }
   ])
   return (
     <>

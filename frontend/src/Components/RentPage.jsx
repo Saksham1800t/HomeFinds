@@ -41,21 +41,21 @@ export default function RentPage() {
         <>
             <div class="container h-100">
                 <div class="d-flex justify-content-center h-100">
-                    <div class="search">
-                        <input class="search_input" type="text" name="" placeholder="Search products here..." />
+                    <div class="search_BuyRent">
+                        <input class="search_input_BuyRent" type="text" name="" placeholder="Search products here..." />
                         <a href="#" class="search_icon"><i class="fa fa-search"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="card-grid">
+            <div class="card-grid_BuyRent">
                 {cards.map((card) => (
-                    <div class="card-style">
-                        <img src={noImage} class="image-style" alt={card.image} />
-                        <div class="card-content">
+                    <div class="card-style_BuyRent">
+                        <img src={noImage} class="image-style_BuyRent" alt={card.image} />
+                        <div class="card-content_BuyRent">
                             <h2>{card.title}</h2>
                             <p>{card.description}</p>
                         </div>
-                        <div class="card-bottom">
+                        <div class="card-bottom_BuyRent">
                             <button class="btn" style={{ backgroundColor: "rgb(223, 177, 93)" }}>RENT NOW</button>
                         </div>
                     </div>
