@@ -1,16 +1,18 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import AboutUs from './Components/AboutUs';
+import AdminLogin from './Components/Admin/AdminLogin';
+import AdminDashboard from './Components/Admin/Dashboard';
 import BuyNow from './Components/BuyNow';
+import BuyPage from './Components/BuyPage';
+import Donate from './Components/Donate';
 import Home from './Components/LandingPages/Home';
 import ProductAdd from './Components/Product/ProductAdd';
 import RentNow from './Components/RentNow';
+import RentPage from './Components/RentPage';
 import Login from './Components/User/Login';
 import Signup from './Components/User/Signup';
 import UserProfile from './Components/User/UserProfile';
 import UserType from './Components/User/UserType';
-import AdminLogin from './Components/Admin/AdminLogin';
-import AdminDashboard from './Components/Admin/Dashboard';
-import BuyPage from './Components/BuyPage';
-import RentPage from './Components/RentPage';
 
 function App() {
   const router = createBrowserRouter([
@@ -61,6 +63,14 @@ function App() {
     {
       path: '/RentPage',
       element: <RentPage />
+    },
+    {
+      path:'/AboutUs',
+      element: <AboutUs/>
+    },
+    {
+      path:'/Donate',
+      element:<Donate/>
     }
   ])
   return (

@@ -15,6 +15,9 @@ export default function UserType() {
                 <button className="button_UserType">
                     <h3>SELLER</h3>
                 </button> 
+                <button className="button_UserType">
+                    <h3>DONATOR</h3>
+                </button> 
             </div>
         </div>
         </div>

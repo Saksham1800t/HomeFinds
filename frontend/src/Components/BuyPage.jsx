@@ -1,5 +1,5 @@
 import React from "react";
-import "../CSS/Buy&RentPage.css";
+import "../CSS/Buy&RentPage&Donate.css";
 import noImage from "../Images/noImage.jpeg";
 
 export default function BuyPage() {

@@ -14,17 +14,17 @@ function Navbar() {
                         <li>|</li>
                         <li><Link to="/"><b>Home</b></Link></li>
                         <li>|</li>
-                        <li><Link to="#about"><b>About</b></Link></li>
+                        <li><Link to="/aboutus"><b>AboutUs</b></Link></li>
                         <li>|</li>
-                        <li><a href="#services"><b>Services</b></a></li>
+                        <li><Link to="/services"><b>Services</b></Link></li>
                         <li>|</li>
-                        <li><a href="#contact"><b>Contact</b></a></li>
+                        <li><Link to="/contact"><b>Contact</b></Link></li>
                     </ul>
                 </div>
                 <div>
                     <ul className="d-flex right_Navbar2">
                         <li><Link to="/Login"><button className='login_Navbar2'><b>LogIn</b></button></Link></li>
-                        <li><button className="signup_Navbar2 login_Navbar2"><b>SignUp</b></button></li>
+                        <li><Link to="/Signup"><button className="signup_Navbar2 login_Navbar2"><b>SignUp</b></button></Link></li>
                         <li><img src={profile} className="image_Navbar2"></img></li>
                     </ul>
                 </div>
