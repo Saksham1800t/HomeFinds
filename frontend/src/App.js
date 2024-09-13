@@ -11,12 +11,17 @@ import AdminLogin from './Components/Admin/AdminLogin';
 import AdminDashboard from './Components/Admin/Dashboard';
 import BuyPage from './Components/BuyPage';
 import RentPage from './Components/RentPage';
+import ContactUs from './Components/LandingPages/ContactUs';
 
 function App() {
   const router = createBrowserRouter([
     {
       path: '/',
       element: <Home />
+    },
+    {
+      path: '/contactus',
+      element: <ContactUs />
     },
     {
       path: '/buyNow',

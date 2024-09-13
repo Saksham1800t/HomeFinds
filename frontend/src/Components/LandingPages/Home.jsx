@@ -6,6 +6,7 @@ import { useTypewriter } from "react-simple-typewriter";
 import "../../CSS/Home.css";
 import newbg from "../../Images/Bghome.jpg";
 import Navbar2 from "./Navbar2";
+import Footer from "./Footer";
 
 export default function Home() {
 
@@ -124,7 +125,12 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
+                <div className="position-relative fixed-bottom">
+                    <Footer />
+                </div>
             </div>
+
+
         </>
     );
 }
