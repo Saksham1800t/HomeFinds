@@ -6,6 +6,7 @@ import buy from "../../Images/srBuy.jpeg";
 import rent from "../../Images/srRent.jpeg";
 import sell from "../../Images/srSell.jpeg";
 import Navbar2 from "./Navbar2";
+import Footer from "./Footer";
 
 export default function Home() {
 
@@ -130,7 +131,12 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
+                <div className="position-relative fixed-bottom">
+                    <Footer />
+                </div>
             </div>
+
+
         </>
     );
 }

@@ -13,12 +13,17 @@ import Login from './Components/User/Login';
 import Signup from './Components/User/Signup';
 import UserProfile from './Components/User/UserProfile';
 import UserType from './Components/User/UserType';
+import ContactUs from './Components/LandingPages/ContactUs';
 
 function App() {
   const router = createBrowserRouter([
     {
       path: '/',
       element: <Home />
+    },
+    {
+      path: '/contactus',
+      element: <ContactUs />
     },
     {
       path: '/buyNow',
