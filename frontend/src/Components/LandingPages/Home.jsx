@@ -1,16 +1,16 @@
 import React from "react";
-import buy from "../../Images/srBuy.jpeg";
-import sell from "../../Images/srSell.jpeg";
-import rent from "../../Images/srRent.jpeg";
 import { useTypewriter } from "react-simple-typewriter";
 import "../../CSS/Home.css";
 import newbg from "../../Images/Bghome.jpg";
+import buy from "../../Images/srBuy.jpeg";
+import rent from "../../Images/srRent.jpeg";
+import sell from "../../Images/srSell.jpeg";
 import Navbar2 from "./Navbar2";
 
 export default function Home() {
 
     const [text2] = useTypewriter({
-        words: ["Buy", "Rent", "Sell"],
+        words: ["Buy", "Rent", "Sell", "Donate"],
         loop: {},
         delaySpeed: 850,
     });
@@ -51,6 +51,12 @@ export default function Home() {
                                 class="btn btn-lg rounded-pill mx-2 midbtn"
                             >
                                 <b>Rent Items</b>
+                            </button>
+                            <button
+                                type="button"
+                                class="btn btn-lg rounded-pill mx-2 midbtn"
+                            >
+                                <b>Donate Items</b>
                             </button>
 
                         </div>

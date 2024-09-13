@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../../CSS/Navbar.css'; // Import CSS for additional styling
 import logo from '../../Images/logo.png';
 import profile from '../../Images/profile.jpg';
@@ -11,13 +12,13 @@ function Navbar() {
           <ul className="nav-links">
             <li><img src={logo} className="logo ml-2"></img></li>
             <li>|</li>
-            <li><a href="#home"><b>Home</b></a></li>
+            <li><Link to="#home"><b>Home</b></Link></li>
             <li>|</li>
-            <li><a href="#about"><b>About</b></a></li>
+            <li><Link to="/Login"><b>About</b></Link></li>
             <li>|</li>
-            <li><a href="#services"><b>Services</b></a></li>
+            <li><Link to="/BuyNow"><b>Services</b></Link></li>
             <li>|</li>
-            <li><a href="#contact"><b>Contact</b></a></li>
+            <li><Link to="/BuyPage"><b>Contact</b></Link></li>
           </ul>
         </div>
         <div>
