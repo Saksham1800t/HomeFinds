@@ -1,8 +1,8 @@
 import React from "react";
-import "../CSS/Buy&RentPage&Donate.css";
-import noImage from "../Images/noImage.jpeg";
+import "../../CSS/Buy&RentPage&Donate.css";
+import noImage from "../../Images/noImage.jpeg";
 
-export default function RentPage() {
+export default function DonatePage() {
     const cards = [
         {
             id: 1,
@@ -56,7 +56,7 @@ export default function RentPage() {
                             <p>{card.description}</p>
                         </div>
                         <div class="card-bottom_BuyRent">
-                            <button class="btn" style={{ backgroundColor: "rgb(223, 177, 93)" }}>RENT NOW</button>
+                            <button class="btn" style={{ backgroundColor: "rgb(223, 177, 93)" }}>Make Demand</button>
                         </div>
                     </div>
                 ))}

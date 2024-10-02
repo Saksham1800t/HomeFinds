@@ -25,7 +25,7 @@ function Navbar() {
                     <ul className="d-flex right_Navbar2">
                         <li><Link to="/Login"><button className='login_Navbar2'><b>LogIn</b></button></Link></li>
                         <li><Link to="/Signup"><button className="signup_Navbar2 login_Navbar2"><b>SignUp</b></button></Link></li>
-                        <li><img src={profile} className="image_Navbar2"></img></li>
+                        <li><Link to="/userprofile"><img src={profile} className="image_Navbar2"></img></Link></li>
                     </ul>
                 </div>
             </div>

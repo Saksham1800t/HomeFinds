@@ -1,6 +1,7 @@
 import React from "react";
-import "../CSS/Buy&RentPage&Donate.css";
-import noImage from "../Images/noImage.jpeg";
+import "../../CSS/Buy&RentPage&Donate.css";
+import noImage from "../../Images/noImage.jpeg";
+import { Link } from "react-router-dom";
 
 export default function BuyPage() {
     const cards = [
@@ -56,7 +57,9 @@ export default function BuyPage() {
                             <p>{card.description}</p>
                         </div>
                         <div class="card-bottom_BuyRent">
+                            <Link to="/buynow">
                             <button class="btn" style={{ backgroundColor: "rgb(223, 177, 93)" }}>BUY NOW</button>
+                            </Link>
                         </div>
                     </div>
                 ))}

@@ -1,8 +1,9 @@
 import React from "react";
-import "../CSS/Buy&RentPage&Donate.css";
-import noImage from "../Images/noImage.jpeg";
+import "../../CSS/Buy&RentPage&Donate.css";
+import noImage from "../../Images/noImage.jpeg";
+import { Link } from "react-router-dom";
 
-export default function DonatePage() {
+export default function RentPage() {
     const cards = [
         {
             id: 1,
@@ -56,7 +57,9 @@ export default function DonatePage() {
                             <p>{card.description}</p>
                         </div>
                         <div class="card-bottom_BuyRent">
+                            <Link to="/rentnow">
                             <button class="btn" style={{ backgroundColor: "rgb(223, 177, 93)" }}>RENT NOW</button>
+                            </Link>
                         </div>
                     </div>
                 ))}

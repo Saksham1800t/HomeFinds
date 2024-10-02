@@ -1,7 +1,7 @@
 import React from 'react';
-import '../CSS/BuyNow.css';
-import profile from '../Images/profile.jpg';
-import radio from '../Images/radio-removebg-preview.png';
+import '../../CSS/BuyNow.css';
+import profile from '../../Images/profile.jpg';
+import radio from '../../Images/radio-removebg-preview.png';
 
 function ProductInfo() {
 

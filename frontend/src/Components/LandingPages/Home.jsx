@@ -7,6 +7,7 @@ import rent from "../../Images/srRent.jpeg";
 import sell from "../../Images/srSell.jpeg";
 import Navbar2 from "./Navbar2";
 import Footer from "./Footer";
+import { Link } from "react-router-dom";
 
 export default function Home() {
 
@@ -41,25 +42,30 @@ export default function Home() {
                         </h1>
 
                         <div className="d-flex flex-row justify-content-centre float-end midb ">
+                            <Link to="/buypage">
                             <button
                                 type="button"
                                 class="btn btn-lg rounded-pill mx-2 midbtn"
                             >
                                 <b>Buy Items</b>
                             </button>
+                            </Link>
+                            <Link to="/Rentpage">
                             <button
                                 type="button"
                                 class="btn btn-lg rounded-pill mx-2 midbtn"
                             >
                                 <b>Rent Items</b>
                             </button>
+                            </Link>
+                            <Link to="/Donate">
                             <button
                                 type="button"
                                 class="btn btn-lg rounded-pill mx-2 midbtn"
                             >
                                 <b>Donate Items</b>
                             </button>
-
+                            </Link>
                         </div>
                     </div>
                 </div>

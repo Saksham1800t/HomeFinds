@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaLock, FaUser } from "react-icons/fa";
 import "../../CSS/Login.css";
+import { Link } from 'react-router-dom';
 
 
 function Login() {
@@ -46,9 +47,13 @@ function Login() {
                             </label>
                         </div>
                         <div className="form-group">
+                            <Link to="/">
                             <button className='button_Login' type="submit">Login</button>
+                            </Link>
                         </div>
+                        <Link to="/signup">
                         <h4 className="fs-6"><b>Don't have an account? SignUp</b></h4>
+                        </Link>
                     </form>
                 </div>
             </div>

@@ -4,6 +4,7 @@ import { IoMdContacts } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
 import "../../CSS/Signup.css";
 import bg from "../../Images/bg.avif";
+import { Link } from 'react-router-dom';
 
 
 function Login() {
@@ -91,10 +92,13 @@ function Login() {
 
 
                         <div className="form-group_Signup mt-2">
-                            <button className="button_Signup" type="submit">SignIn</button>
+                            <Link to="/">
+                            <button className="button_Signup" type="submit">SignUp</button>
+                            </Link>
                         </div>
+                        <Link to="/login">
                         <h4 className="fs-6"><b>Already have an account? Login</b></h4>
-
+                        </Link>
 
                     </form>
                 </div>
