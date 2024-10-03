@@ -18,7 +18,9 @@ app.get('/', async (req, res) => {
 });
 
 const userRoutes = require('./routes/userRoutes');
+const adminRoutes = require('./routes/adminRoutes');
 app.use('/users', userRoutes);
+app.use('/admin', adminRoutes);
 
 app.listen(5724, () => {
     console.log("Server is running on port 5724");

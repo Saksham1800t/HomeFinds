@@ -29,12 +29,14 @@ function Login() {
                 password: form.password
             });
             localStorage.setItem('token', response.data.token);
-            console.log(response.data); 
+            localStorage.setItem('role', response.data.role);
+            console.log(response); 
             alert('Login Successful');
             navigate('/');
         } catch (error) {
             console.error(error);
             alert('Login Failed. Please try again.');
+            navigate('/login');
         }
     };
 

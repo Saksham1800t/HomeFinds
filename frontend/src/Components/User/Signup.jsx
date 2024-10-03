@@ -15,7 +15,8 @@ function Signup() {
         password: '',
         email: '',
         contact: '',
-        address: ''
+        address: '',
+        pincode: ''
     });
 
     // Update form data based on the input field name
@@ -34,14 +35,15 @@ function Signup() {
                 password: form.password,
                 email: form.email,
                 contact: form.contact,
-                address: form.address
+                address: form.address,
+                pincode: form.pincode
             });
             console.log(response.data);
-            alert('Signup Successful');
-            navigate('/');
+            alert('Register Successful on our website');
+            navigate('/login');
         } catch (err) {
             console.log(err);
-            alert('Signup Failed');
+            alert('Registration Failed');
         }
     };
 
@@ -74,7 +76,7 @@ function Signup() {
                                     name="userName"
                                     placeholder="Enter Username"
                                     onChange={handleChange}
-                                    value={form.userName}  // Controlled component: value linked to state
+                                    value={form.userName}
                                     required
                                 />
                             </div>
@@ -90,7 +92,7 @@ function Signup() {
                                     name="password"
                                     placeholder="Enter Password"
                                     onChange={handleChange}
-                                    value={form.password}  // Controlled component: value linked to state
+                                    value={form.password}
                                     required
                                 />
                             </div>
@@ -106,7 +108,7 @@ function Signup() {
                                     name="email"
                                     placeholder="Enter Email"
                                     onChange={handleChange}
-                                    value={form.email}  // Controlled component: value linked to state
+                                    value={form.email}
                                     required
                                 />
                             </div>
@@ -122,7 +124,7 @@ function Signup() {
                                     name="contact"
                                     placeholder="Enter Mobile no."
                                     onChange={handleChange}
-                                    value={form.contact}  // Controlled component: value linked to state
+                                    value={form.contact}
                                     required
                                 />
                             </div>
@@ -138,7 +140,22 @@ function Signup() {
                                     name="address"
                                     placeholder="Enter Address"
                                     onChange={handleChange}
-                                    value={form.address}  // Controlled component: value linked to state
+                                    value={form.address}
+                                    required
+                                />
+                            </div>
+
+                            <div className="form-group_Signup">
+                                <label className="label_Signup">
+                                    <b>Pincode:</b>
+                                </label>
+                                <input
+                                    className="input_Signup"
+                                    type="text"
+                                    name="pincode"
+                                    placeholder="Enter Pincode"
+                                    onChange={handleChange}
+                                    value={form.pincode}
                                     required
                                 />
                             </div>

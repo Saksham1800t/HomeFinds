@@ -6,18 +6,20 @@ async function login(userName, password) {
     try {
         const existingUser = await userModel.findOne({ userName })
         if (!existingUser) {
-            return { error: 'User not found' };
+            console.log('User not found');
+            return null;
         }
         const isPasswordValid = await bcrypt.compare(password, existingUser.password);
         if (!isPasswordValid) {
-            return { error: 'Invalid password' };
+            console.log('Invalid password');
+            return null;
         }
         const token = generateToken(existingUser);
         return token;
     }
     catch (error) {
         console.log("login error", error.message);
-        return { error: 'Failed to login user', details: error.message };
+        return null
     }
 }
 

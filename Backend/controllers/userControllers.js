@@ -17,7 +17,15 @@ module.exports.login = async (req, res) => {
     try {
         const { userName, password } = req.body;
         const token = await bcryptLogin.login(userName, password);
-        res.json({token: token});
+        if (!token) {
+            return res.status(401).json({ error: "Invalid username or password" });
+        }
+        const user = await userModel.findOne({ userName: userName });
+        if (!user) {
+            return res.status(404).json({ error: "User not found" });
+        }
+        const role = user.role;
+        res.json({ token: token, role: role });
     } catch (error) {
         res.status(401).json({ error: "Invalid username or password" });
     }

@@ -14,6 +14,7 @@ import Signup from './Components/User/Signup';
 import UserProfile from './Components/User/UserProfile';
 import UserType from './Components/User/UserType';
 import ContactUs from './Components/LandingPages/ContactUs';
+import AllUsers from './Components/Admin/AllUsers';
 
 function App() {
   const router = createBrowserRouter([
@@ -60,6 +61,10 @@ function App() {
     {
       path: '/AdminDashboard',
       element: <AdminDashboard />
+    },
+    {
+      path: '/adminAllUsers',
+      element: <AllUsers />
     },
     {
       path: '/BuyPage',

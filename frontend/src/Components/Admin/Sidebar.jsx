@@ -16,15 +16,12 @@ const Admin = () => {
 
   return (
     <div>
-
       <button className="sidebar-toggle" onClick={toggleSidebar}>
         <FaBars className="mx-2 mt-1 fs-5" onClick={toggle} />
         <b>
           {isOpen ? 'Close Sidebar' : 'Open'}
         </b>
       </button>
-
-
       <div className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
         <div className="d-flex mb-2 ">
           <FaBars className="mx-3 mt-1 icon_sidebar" onClick={toggle} />
@@ -36,7 +33,7 @@ const Admin = () => {
         </div>
         <ul className='ul_sidebar'><hr />
           <li className='li_sidebar'><a className='a_sidebar' href="#home"><FaHome className="icon_sidebar" /><b>Home</b></a></li><hr />
-          <li className='li_sidebar'><a className='a_sidebar' href="#about"><FaUserPlus className="icon_sidebar" /><b>Users</b></a></li><hr />
+          <li className='li_sidebar'><a className='a_sidebar' href="/adminAllUsers"><FaUserPlus className="icon_sidebar" /><b>Users</b></a></li><hr />
           <li className='li_sidebar'><a className='a_sidebar' href="#services"><MdSupervisedUserCircle className="icon_sidebar" /><b>Buyers</b></a></li><hr />
           <li className='li_sidebar'><a className='a_sidebar' href="#contact"><FaUser className="icon_sidebar" /><b>Sellers</b></a></li><hr />
         </ul>
