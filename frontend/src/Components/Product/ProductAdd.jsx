@@ -80,7 +80,8 @@ function ProductAdd() {
         productName: '',
         description: '',
         category: '',
-        price: ''
+        price: '',
+        type: '',
     });
 
     const handleChange = (e) => {
@@ -93,21 +94,20 @@ function ProductAdd() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Simple frontend validation
-        if (!formData.productName || !formData.description || !formData.category || !formData.price) {
+        if (!formData.productName || !formData.description || !formData.category || !formData.price || !formData.type) {
             alert('Please fill in all the fields');
             return;
         }
 
         try {
-            // Send form data to backend
+            console.log(formData);
             const response = await axios.post('http://localhost:5724/products/adding', formData);
             console.log(response.data);
-
+            
+            
             if (response.ok) {
-                // Successfully added product
                 alert('Product added successfully');
-                setFormData({ productName: '', description: '', category: '', price: '' });
+                setFormData({ productName: '', description: '', category: '', price: '', type: '' });
             } else {
                 alert('Failed to add product');
             }
@@ -157,12 +157,13 @@ function ProductAdd() {
                             <label className="label_ProductAdd"><b>Category</b></label>
                             <select
                                 name="category"
-                                className="input_ProductAdd"
                                 value={formData.category}
                                 onChange={handleChange}
                                 required
+                                className='input_ProductAdd_dropdown'
+                                placeholder="Category"
                             >
-                                <option disabled>Select a category</option>
+                                <option value={null}>Select a category</option>
                                 <option value="electronics">Electronics</option>
                                 <option value="clothing">Clothing</option>
                                 <option value="grocery">Grocery</option>
@@ -170,7 +171,7 @@ function ProductAdd() {
                         </div>
 
                         <div className="form-group_ProductAdd">
-                            <label className="label_ProductAdd"><b>Price:</b></label>
+                            <label className="label_ProductAdd"><b>Price (in &#8377;):</b></label>
                             <input
                                 type="number"
                                 name="price"
@@ -180,6 +181,22 @@ function ProductAdd() {
                                 onChange={handleChange}
                                 required
                             />
+                        </div>
+
+                        <div className="form-group_ProductAdd">
+                            <label className="label_ProductAdd"><b>For:</b></label>
+                            <select
+                                name="type"
+                                value={formData.type}
+                                onChange={handleChange}
+                                required
+                                className='input_ProductAdd_dropdown'
+                            >
+                                <option value={null}>Select a category</option>
+                                <option value="sell">Sell</option>
+                                <option value="rent">Rent</option>
+                                <option value="donate">Donate</option>
+                            </select>
                         </div>
 
                         <div className="form-group_ProductAdd">

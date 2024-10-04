@@ -1,6 +1,7 @@
 const userModel = require('../models/users');
 const bcrypt = require('bcrypt');
 const { generateToken } = require('../utils/jwtUtils');
+const verifyToken2 = require('../utils/authJwt');
 
 async function login(userName, password) {
     try {
@@ -23,4 +24,22 @@ async function login(userName, password) {
     }
 }
 
-module.exports = { login };
+async function refreshToken(oldToken) {
+    try {
+        const decodedToken = verifyToken2.verifyToken2(oldToken);
+        console.log("Decoded token", decodedToken);
+        const user = await userModel.findById(decodedToken.id);
+        if (!user) {
+            throw new Error("User not found");
+        }
+        const newToken = generateToken(user);
+        console.log("New token generated", newToken);
+        
+        return newToken;
+    } catch (error) {
+        console.log("refreshToken error", error.message);
+        return null;
+    }
+}
+
+module.exports = { login, refreshToken };

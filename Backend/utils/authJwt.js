@@ -17,13 +17,20 @@ function verifyToken(req, res, next) {
     jwt.verify(token, secretKey, (err, user) => {
         if (err) {
             console.log("JWT Verification Error: ", err);
-            console.log("Secret Key: ", secretKey);
             return res.status(401).json({ message: "Unauthorized!" });
         }
         req.user = user;
         next();
     });
-
 }
 
-module.exports = { verifyToken };
+function verifyToken2(token) {
+    try {
+        return jwt.verify(token, secretKey);
+    } catch (error) {
+        console.error("Token verification error:", error.message);
+        throw new Error("Invalid or expired token");
+    }
+}
+
+module.exports = { verifyToken, verifyToken2 };

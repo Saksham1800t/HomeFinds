@@ -30,3 +30,19 @@ module.exports.login = async (req, res) => {
         res.status(401).json({ error: "Invalid username or password" });
     }
 }
+
+module.exports.refreshToken = async (req, res) => {
+    try {
+        const { token } = req.body;
+        if (!token) {
+            return res.status(400).json({ error: "No token provided" }); // Better message for missing token
+        }
+        const newToken = await bcryptLogin.refreshToken(token);
+        if (!newToken) {
+            return res.status(401).json({ error: "Failed to refresh token" }); // Clearer error message
+        }
+        res.json({ token: newToken });
+    } catch (error) {
+        res.status(401).json({ error: "Invalid token" });
+    }
+}

@@ -6,5 +6,6 @@ const userControllers = require('../controllers/userControllers');
 router.use(cors());
 router.post('/signup', userControllers.signup);
 router.post('/login', userControllers.login);
+router.post('/refreshToken', userControllers.refreshToken);
 
 module.exports = router;

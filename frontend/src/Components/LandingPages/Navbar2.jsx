@@ -28,9 +28,9 @@ function Navbar() {
                         <li>|</li>
                         <li><Link to="/aboutus"><b>AboutUs</b></Link></li>
                         <li>|</li>
-                        <li><Link to="/services"><b>Services</b></Link></li>
+                        <li><Link to="/Productadd"><b>Add Item</b></Link></li>
                         <li>|</li>
-                        <li><Link to="/contact"><b>Contact</b></Link></li>
+                        <li><Link to="/contactus"><b>Contact</b></Link></li>
                         {role === 'admin' ? <>
                             <li>|</li>
                             <li><Link to='/admindashboard'><b>Admin</b></Link></li> </> : null}
