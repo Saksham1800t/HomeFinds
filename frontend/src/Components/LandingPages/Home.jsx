@@ -10,6 +10,7 @@ import Footer from "./Footer";
 import { Link } from "react-router-dom";
 
 export default function Home() {
+    const token = localStorage.getItem('token');
 
     const [text2] = useTypewriter({
         words: ["Buy", "Rent", "Sell", "Donate"],

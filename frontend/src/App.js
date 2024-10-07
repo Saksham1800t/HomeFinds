@@ -15,6 +15,7 @@ import UserProfile from './Components/User/UserProfile';
 import UserType from './Components/User/UserType';
 import ContactUs from './Components/LandingPages/ContactUs';
 import AllUsers from './Components/Admin/AllUsers';
+import AllProducts from './Components/Admin/AllProducts';
 
 function App() {
   const router = createBrowserRouter([
@@ -65,6 +66,10 @@ function App() {
     {
       path: '/adminAllUsers',
       element: <AllUsers />
+    },
+    {
+      path: '/adminAllProducts',
+      element: <AllProducts />
     },
     {
       path: '/BuyPage',

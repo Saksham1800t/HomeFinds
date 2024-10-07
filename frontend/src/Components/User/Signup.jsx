@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 function Signup() {
     const navigate = useNavigate();
     const [form, setForm] = useState({
+        name: '',
         userName: '',
         password: '',
         email: '',
@@ -31,6 +32,7 @@ function Signup() {
         try {
             // Make a post request to backend API
             const response = await axios.post('http://localhost:5724/users/signup', {
+                name: form.name,
                 userName: form.userName,
                 password: form.password,
                 email: form.email,
@@ -64,6 +66,22 @@ function Signup() {
                     <div>
                         <form onSubmit={handleSubmit}>
                             <h2 className="mb-4 fs-5"><b><u>Signup for new account</u></b></h2>
+
+                            <div className="form-group">
+                                <label className="label_Signup">
+                                    <FaUser className="icon_Signup" />
+                                    <b>Name:</b>
+                                </label>
+                                <input
+                                    className="input_Signup"
+                                    type="text"
+                                    name="name"
+                                    placeholder="Enter Name"
+                                    onChange={handleChange}
+                                    value={form.name}
+                                    required
+                                />
+                            </div>
 
                             <div className="form-group">
                                 <label className="label_Signup">

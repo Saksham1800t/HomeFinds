@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "./Sidebar";
 import axios from 'axios';
+import {useNavigate} from 'react-router-dom';
 
 export default function AllUsers() {
     const token = localStorage.getItem('token');
+    const navigate = useNavigate();
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
@@ -29,8 +31,10 @@ export default function AllUsers() {
             getUsers();
         } else {
             alert('Please login as Admin to view all users');
+            navigate('/login');
+
         }
-    }, [token]);
+    }, [token, navigate]);
 
     return (
         <>
@@ -40,6 +44,7 @@ export default function AllUsers() {
                 <thead>
                     <tr>
                         <th scope="col">S.no.</th>
+                        <th scope="col">Name</th>
                         <th scope="col">UserName</th>
                         <th scope="col">Email</th>
                         <th scope="col">Contact</th>
@@ -52,6 +57,7 @@ export default function AllUsers() {
                         return (
                             <tr key={user.id}>
                                 <th scope="row">{index + 1}</th>
+                                <td>{user.name}</td>
                                 <td>{user.userName}</td>
                                 <td>{user.email}</td>
                                 <td>{user.contact}</td>

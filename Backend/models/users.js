@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
     userName: {
         type: String,
         unique: true,
@@ -22,11 +26,19 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    pincode: {
+        type: Number,
+        required: true
+    },
     role: {
         type: String,
         enum: ['admin', 'user'],
         default: 'user',
-    }
+    },
+    productsCreated: [{ 
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'products' 
+    }] 
 });
 
 const userModel = mongoose.model("users", userSchema);

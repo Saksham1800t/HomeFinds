@@ -46,3 +46,16 @@ module.exports.refreshToken = async (req, res) => {
         res.status(401).json({ error: "Invalid token" });
     }
 }
+
+module.exports.getUserData = async (req, res) => {
+    try {
+        const userId = req.user.id;
+        const user = await userModel.findById(userId);
+        if (!user) {
+            return res.status(404).json({ error: "User not found" });
+        }
+        res.json({ user: user });
+    } catch (error) {
+        res.status(401).json({ error: "Invalid token" });
+    }
+};

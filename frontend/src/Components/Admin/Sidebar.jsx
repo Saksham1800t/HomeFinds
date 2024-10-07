@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import { FaBars, FaHome, FaUser } from "react-icons/fa";
 import { FaUserPlus } from "react-icons/fa6";
 import { MdSupervisedUserCircle } from "react-icons/md";
-import '../../CSS/Sidebar.css'; // You can add styles in a separate file.
+import '../../CSS/Sidebar.css'; 
 import profile from '../../Images/profile.jpg';
+import { Link } from 'react-router-dom';
 
 const Admin = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -32,9 +33,9 @@ const Admin = () => {
           <h4 className='h4_sidebar'>ADMIN</h4>
         </div>
         <ul className='ul_sidebar'><hr />
-          <li className='li_sidebar'><a className='a_sidebar' href="#home"><FaHome className="icon_sidebar" /><b>Home</b></a></li><hr />
-          <li className='li_sidebar'><a className='a_sidebar' href="/adminAllUsers"><FaUserPlus className="icon_sidebar" /><b>Users</b></a></li><hr />
-          <li className='li_sidebar'><a className='a_sidebar' href="#services"><MdSupervisedUserCircle className="icon_sidebar" /><b>Buyers</b></a></li><hr />
+          <li className='li_sidebar'><Link className='a_sidebar' to="/admindashboard"><FaHome className="icon_sidebar" /><b>Home</b></Link></li><hr />
+          <li className='li_sidebar'><Link className='a_sidebar' to="/adminAllUsers"><FaUserPlus className="icon_sidebar" /><b>Users</b></Link></li><hr />
+          <li className='li_sidebar'><Link className='a_sidebar' to="/adminAllProducts"><MdSupervisedUserCircle className="icon_sidebar" /><b>All Products</b></Link></li><hr />
           <li className='li_sidebar'><a className='a_sidebar' href="#contact"><FaUser className="icon_sidebar" /><b>Sellers</b></a></li><hr />
         </ul>
       </div>
