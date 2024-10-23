@@ -24,25 +24,25 @@ const productSchema = new mongoose.Schema({
     },
     addedBy: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'users', 
+        ref: 'users',
         required: true
     },
-    created_at: {  
+    created_at: {
         type: String,
     },
-    updated_at: {  
+    updated_at: {
         type: String,
     },
 });
 
-productSchema.pre('save', function(next) {
+productSchema.pre('save', function (next) {
     const now = new Date();
     this.created_at = now.toLocaleString();  // Format as string
     this.updated_at = now.toLocaleString();  // Format as string
     next();
 });
 
-productSchema.pre('findOneAndUpdate', function(next) {
+productSchema.pre('findOneAndUpdate', function (next) {
     this.set({ updated_at: new Date().toLocaleString() });
     next();
 });

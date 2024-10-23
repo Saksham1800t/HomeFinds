@@ -59,3 +59,22 @@ module.exports.getUserData = async (req, res) => {
         res.status(401).json({ error: "Invalid token" });
     }
 };
+
+module.exports.updateUserData = async (req, res) => {
+    try {
+        const userId = req.user.id;
+        const userData = req.body;
+        if (userData.password) {
+            return res.status(400).json({ error: "Password cannot be updated here" });
+        }
+        const user = await userModel.findByIdAndUpdate
+            (userId, userData, { new: true, runValidators: true });
+        if (!user) {
+            return res.status(404).json({ error: "User not found" });
+        }
+        res.json({ user: user, message: "User updated successfully" });
+    }
+    catch (error) {
+        res.status(401).json({ error: "Failed to update user datails" });
+    }
+}

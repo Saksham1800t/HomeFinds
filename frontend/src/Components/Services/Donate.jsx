@@ -1,64 +1,66 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../CSS/Buy&RentPage&Donate.css";
 import noImage from "../../Images/noImage.jpeg";
+import { Link, useNavigate } from "react-router-dom";
+import axios from 'axios';
 
-export default function DonatePage() {
-    const cards = [
-        {
-            id: 1,
-            image: "image1.jpg",
-            title: "Card 1",
-            description: "This is the description for Card 1."
-        },
-        {
-            id: 2,
-            image: "image2.jpg",
-            title: "Card 2",
-            description: "This is the description for Card 2."
-        },
-        {
-            id: 3,
-            image: "image3.jpg",
-            title: "Card 3",
-            description: "This is the description for Card 3."
-        },
-        {
-            id: 4,
-            image: "image4.jpg",
-            title: "Card 4",
-            description: "This is the description for Card 4."
-        },
-        {
-            id: 5,
-            image: "image5.jpg",
-            title: "Card 5",
-            description: "This is the description for Card 5."
+export default function BuyPage() {
+    const token = localStorage.getItem('token');
+    const navigate = useNavigate();
+    const [cards, setCards] = useState([]);
+
+    useEffect(() => {
+        const fetchBuyProducts = async () => {
+            try {
+                const response = await axios.post('http://localhost:5724/products/get-all-products', {}, {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+                console.log(response.data.products);
+                setCards(response.data.products);
+            } catch (error) {
+                console.error('Error fetching products:', error);
+            }
+        };
+
+        if (!token) {
+            navigate('/login');
+            alert("You need to login first!");
+        } else {
+            fetchBuyProducts();
         }
-    ];
+    }, [token, navigate]);
 
+    const handleBuyNow = (id) => {
+        navigate(`/buynow/${id}`);
+    };
 
     return (
         <>
-            <div class="container h-100">
-                <div class="d-flex justify-content-center h-100">
-                    <div class="search_BuyRent">
-                        <input class="search_input_BuyRent" type="text" name="" placeholder="Search products here..." />
-                        <a href="#" class="search_icon"><i class="fa fa-search"></i></a>
+            <div className="container h-100">
+                <div className="d-flex justify-content-center h-100">
+                    <div className="search_BuyRent">
+                        <input className="search_input_BuyRent" type="text" placeholder="Search products here..." />
+                        <a href="#" className="search_icon"><i className="fa fa-search"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="card-grid_BuyRent">
+            <div className="card-grid_BuyRent">
                 {cards.map((card) => (
-                    <div class="card-style_BuyRent">
-                        <img src={noImage} class="image-style_BuyRent" alt={card.image} />
-                        <div class="card-content_BuyRent">
-                            <h2>{card.title}</h2>
-                            <p>{card.description}</p>
+                    card.type === "donate" ? (
+                        <div key={card._id} className="card-style_BuyRent">
+                            <img src={noImage} className="image-style_BuyRent" alt={card.image} />
+                            <div className="card-content_BuyRent">
+                                <h3>{card.pName}</h3>
+                                <p className="card-text text-truncate">{card.description}</p>
+                                <p>Price: {card.price}</p>
+                            </div>
+                            <div className="card-bottom_BuyRent">
+                                <button className="btn" style={{ backgroundColor: "rgb(223, 177, 93)" }} onClick={() => handleBuyNow(card._id)}>Make Demand</button>
+                            </div>
                         </div>
-                        <div class="card-bottom_BuyRent">
-                            <button class="btn" style={{ backgroundColor: "rgb(223, 177, 93)" }}>Make Demand</button>
-                        </div>
-                    </div>
+                    ) : null
                 ))}
             </div>
         </>

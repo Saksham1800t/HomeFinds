@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import '../../CSS/UserProfile.css'; // Import your custom CSS file
+import '../../CSS/UserProfile.css'; 
 import userImage from '../../Images/user.jpg';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 
 const UserProfile = () => {
@@ -88,6 +88,10 @@ const UserProfile = () => {
                                                         <h6 className="text-muted f-w-400">{user.pincode}</h6>
                                                     </div>
                                                 </div>
+                                                <div className="mt-4">
+                                                    <Link to='/updateUser'><button className="btn btn-primary col-md-1">Edit</button></Link>
+                                                    <button className="btn btn-danger mx-4 col-md-1">Delete</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -99,15 +103,16 @@ const UserProfile = () => {
 
                 <div className="container mt-4">
                     <h1 className="text-left">Your Products :</h1>
-                    <div className="mt-4" style={{marginRight: "1rem"}}>
+                    <div className="mt-4" style={{ marginRight: "1rem" }}>
                         {product.map((product) => {
                             return (
                                 <div className="col-md-9 mt-1" style={{ boxShadow: "10px 10px 20px 0 rgba(0, 0, 0, 1);" }}>
-                                    <div className="card">
+                                    <div className="card container">
                                         <div className="card-body">
-                                            <h5 className="card-title">{product.pName}</h5>
+                                            <h5 className="card-title fs-4">{product.pName}</h5>
                                             <p className="card-text">{product.description}</p>
-                                            <p className="card-text">Price: &#8377;{product.price}</p>
+                                            <p className="card-text fs-6"><b>For:</b> {product.type}</p>
+                                            <p className="card-text fs-6"><b>Price:</b> &#8377;{product.price}</p>
                                         </div>
                                         <div>
                                             <button className="btn btn-primary mt-1 mb-2 mx-3 col-md-1">Edit</button>

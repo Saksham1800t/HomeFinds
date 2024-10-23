@@ -7,7 +7,6 @@ import BuyPage from './Components/Services/BuyPage';
 import Donate from './Components/Services/Donate';
 import Home from './Components/LandingPages/Home';
 import ProductAdd from './Components/Product/ProductAdd';
-import RentNow from './Components/Services/RentNow';
 import RentPage from './Components/Services/RentPage';
 import Login from './Components/User/Login';
 import Signup from './Components/User/Signup';
@@ -16,8 +15,10 @@ import UserType from './Components/User/UserType';
 import ContactUs from './Components/LandingPages/ContactUs';
 import AllUsers from './Components/Admin/AllUsers';
 import AllProducts from './Components/Admin/AllProducts';
+import UpdateUser from './Components/User/updateUser';
 
 function App() {
+
   const router = createBrowserRouter([
     {
       path: '/',
@@ -28,7 +29,7 @@ function App() {
       element: <ContactUs />
     },
     {
-      path: '/buyNow',
+      path: '/buyNow/:id',
       element: <BuyNow />,
     },
     {
@@ -44,16 +45,16 @@ function App() {
       element: <Signup />,
     },
     {
-      path: '/RentNow',
-      element: <RentNow />,
-    },
-    {
       path: '/UserType',
       element: <UserType />,
     },
     {
       path: '/UserProfile',
       element: <UserProfile />,
+    },
+    {
+      path: '/updateUser',
+      element: <UpdateUser />,
     },
     {
       path: '/AdminLogin',
@@ -80,17 +81,17 @@ function App() {
       element: <RentPage />
     },
     {
-      path:'/AboutUs',
-      element: <AboutUs/>
+      path: '/AboutUs',
+      element: <AboutUs />
     },
     {
-      path:'/Donate',
-      element:<Donate/>
+      path: '/Donate',
+      element: <Donate />
     }
   ])
   return (
     <>
-      <RouterProvider router={router} />
+        <RouterProvider router={router} />
     </>
   );
 }

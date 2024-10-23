@@ -10,5 +10,6 @@ router.post('/add-product', auth.verifyToken, productControllers.createProduct);
 router.post('/get-products', auth.verifyToken, productControllers.getAllProducts);
 router.post('/get-user-products', auth.verifyToken, productControllers.getUserProducts);
 router.post('/get-all-products', auth.verifyToken, productControllers.getAllProducts);
+router.post('/getproduct/:id', productControllers.getProductById);
 
 module.exports = router;

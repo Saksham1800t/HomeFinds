@@ -50,10 +50,18 @@
     height:100%;
     width:100%;
     padding:20px 30px;
-    margin:1rem 0 0 3rem;
+    margin:0 0 0 3rem;
     box-shadow: rgba(0, 0, 0, 0.48) 5px 6px 10px 0px;
     border-radius: 5px;
 }
+
+.data_BuyNow_card-text{
+    max-width: 510px; 
+    line-height: 1.5; 
+    overflow-wrap: break-word; /* Breaks long words onto the next line */
+    word-wrap: break-word; 
+}
+
 .Des_BuyNow{
     background: rgb(230, 230, 230);
     padding:20px 30px;

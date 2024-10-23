@@ -33,9 +33,22 @@ module.exports.getAllProducts = async (req, res) => {
 
 module.exports.getUserProducts = async (req, res) => {
     try {
-        const product = await productModel.find({addedBy: req.user.id});
+        const product = await productModel.find({ addedBy: req.user.id });
         res.status(200).json({ product: product });
-    }catch (error) {
+    } catch (error) {
         res.status(400).json({ error: "Failed to get products", details: error.message });
     }
 };
+
+module.exports.getProductById = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const product = await productModel.findById(id).populate('addedBy', 'userName email contact address pincode');
+        if (!product) {
+            return res.status(404).json({ error: "Product not found" });
+        }
+        res.json({ product: product });
+    } catch (error) {
+        res.status(400).json({ error: "Failed to get product", details: error.message }); s
+    }
+};   
