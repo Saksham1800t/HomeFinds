@@ -11,5 +11,7 @@ router.post('/get-products', auth.verifyToken, productControllers.getAllProducts
 router.post('/get-user-products', auth.verifyToken, productControllers.getUserProducts);
 router.post('/get-all-products', auth.verifyToken, productControllers.getAllProducts);
 router.post('/getproduct/:id', productControllers.getProductById);
+router.post('/update-product/:id', productControllers.updateProductData);
+router.post('/delete-product/:id', auth.verifyToken, productControllers.deleteProduct);
 
 module.exports = router;

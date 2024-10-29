@@ -49,6 +49,36 @@ module.exports.getProductById = async (req, res) => {
         }
         res.json({ product: product });
     } catch (error) {
-        res.status(400).json({ error: "Failed to get product", details: error.message }); s
+        res.status(400).json({ error: "Failed to get product", details: error.message }); 
     }
 };   
+
+module.exports.updateProductData = async (req, res) => {
+    try {
+        const productId = req.params.id;
+        const productData = req.body;
+        
+        const product = await productModel.findByIdAndUpdate
+            (productId, productData, { new: true, runValidators: true });
+        if (!product) {
+            return res.status(404).json({ error: "Product not found" });
+        }
+        res.json({ product: product, message: "Product updated successfully" });
+    }
+    catch (error) {
+        res.status(500).json({ error: "Failed to update product datails" });
+    }
+}
+
+module.exports.deleteProduct = async (req, res) => {
+    try {
+        const productId = req.params.id;
+        const product = await productModel.findByIdAndDelete(productId);
+        if (!product) {
+            return res.status(404).json({ error: "Product not found" });
+        }
+        res.json({ message: "Product deleted successfully" });
+    } catch (error) {
+        res.status(500).json({ error: "Failed to delete product" });
+    }
+}

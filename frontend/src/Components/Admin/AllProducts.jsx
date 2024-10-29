@@ -59,7 +59,7 @@ export default function AllProducts() {
                             <tr key={product.id}>
                                 <th scope="row">{index + 1}</th>
                                 <td>{product.pName}</td>
-                                <td>{product.description}</td>
+                                <td className="text-truncate" style={{maxWidth: "150px"}}>{product.description}</td>
                                 <td>{product.category}</td>
                                 <td>{product.price}</td>
                                 <td>{product.type}</td>

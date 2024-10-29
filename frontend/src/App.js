@@ -16,6 +16,7 @@ import ContactUs from './Components/LandingPages/ContactUs';
 import AllUsers from './Components/Admin/AllUsers';
 import AllProducts from './Components/Admin/AllProducts';
 import UpdateUser from './Components/User/updateUser';
+import UpdateProducts from './Components/Product/UpdateProducts';
 
 function App() {
 
@@ -31,6 +32,10 @@ function App() {
     {
       path: '/buyNow/:id',
       element: <BuyNow />,
+    },
+    {
+      path: '/updateProduct/:id',
+      element: <UpdateProducts />,
     },
     {
       path: '/productAdd',

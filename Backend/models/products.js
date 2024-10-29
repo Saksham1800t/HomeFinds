@@ -37,14 +37,23 @@ const productSchema = new mongoose.Schema({
 
 productSchema.pre('save', function (next) {
     const now = new Date();
-    this.created_at = now.toLocaleString();  // Format as string
-    this.updated_at = now.toLocaleString();  // Format as string
+    this.created_at = now.toLocaleString();
+    this.updated_at = now.toLocaleString();
     next();
 });
 
 productSchema.pre('findOneAndUpdate', function (next) {
     this.set({ updated_at: new Date().toLocaleString() });
     next();
+});
+
+productSchema.post('findOneAndDelete', async function (deletedProduct) {
+    if (deletedProduct) {
+        await mongoose.model('users').updateOne(
+            { _id: deletedProduct.addedBy },
+            { $pull: { productsCreated: deletedProduct._id } }
+        );
+    }
 });
 
 const productModel = mongoose.model("products", productSchema);

@@ -13,7 +13,7 @@ function ProductInfo() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.post(`http://localhost:5724/products/getproduct/${id}`); // Use GET method to fetch a single product
+        const response = await axios.post(`http://localhost:5724/products/getproduct/${id}`);
         console.log('Product:', response.data.product);
         setProduct(response.data.product);
 

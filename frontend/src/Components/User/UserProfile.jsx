@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '../../CSS/UserProfile.css'; 
+import '../../CSS/UserProfile.css';
 import userImage from '../../Images/user.jpg';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
@@ -40,6 +40,41 @@ const UserProfile = () => {
 
         getUser();
     }, [token, navigate]);
+
+    const handleDeleteProfile = async () => {
+        try {
+            await axios.post(`http://localhost:5724/users/deleteUser`, {}, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            alert("User profile deleted successfully");
+            localStorage.removeItem('token');
+            navigate('/login');
+        } catch (error) {
+            console.error("Error deleting user profile:", error);
+            alert("Failed to delete user profile");
+        }
+    };
+
+    const handleDeleteProduct = async (productId) => {
+        try {
+            await axios.post(`http://localhost:5724/products/delete-product/${productId}`, {}, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            setProduct(product.filter((item) => item._id !== productId));
+            alert("Product deleted successfully");
+        } catch (error) {
+            console.error("Error deleting product:", error);
+            alert("Failed to delete product");
+        }
+    };
+
+    const handleUpdateProduct = (id) => {
+        navigate(`/updateProduct/${id}`);
+    }
 
     return (
         <>
@@ -90,7 +125,7 @@ const UserProfile = () => {
                                                 </div>
                                                 <div className="mt-4">
                                                     <Link to='/updateUser'><button className="btn btn-primary col-md-1">Edit</button></Link>
-                                                    <button className="btn btn-danger mx-4 col-md-1">Delete</button>
+                                                    <button className="btn btn-danger mx-4 col-md-1" onClick={handleDeleteProfile}>Delete</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -110,13 +145,13 @@ const UserProfile = () => {
                                     <div className="card container">
                                         <div className="card-body">
                                             <h5 className="card-title fs-4">{product.pName}</h5>
-                                            <p className="card-text">{product.description}</p>
+                                            <p className="card-text text-truncate" style={{maxWidth: "200px"}}>{product.description}</p>
                                             <p className="card-text fs-6"><b>For:</b> {product.type}</p>
                                             <p className="card-text fs-6"><b>Price:</b> &#8377;{product.price}</p>
                                         </div>
                                         <div>
-                                            <button className="btn btn-primary mt-1 mb-2 mx-3 col-md-1">Edit</button>
-                                            <button className="btn btn-danger mt-1 mb-2 mx-2">Delete</button>
+                                            <button className="btn btn-primary mt-1 mb-2 mx-3 col-md-1" onClick={() => handleUpdateProduct(product._id)}>Edit</button>
+                                            <button className="btn btn-danger mt-1 mb-2 mx-2" onClick={() => handleDeleteProduct(product._id)}>Delete</button>
                                         </div>
                                     </div>
                                 </div>
