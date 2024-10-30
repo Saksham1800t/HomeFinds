@@ -43,7 +43,7 @@ const UserProfile = () => {
 
     const handleDeleteProfile = async () => {
         try {
-            await axios.post(`http://localhost:5724/users/deleteUser`, {}, {
+            await axios.post('http://localhost:5724/users/deleteUser', {}, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

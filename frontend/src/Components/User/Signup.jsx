@@ -20,17 +20,14 @@ function Signup() {
         pincode: ''
     });
 
-    // Update form data based on the input field name
     const handleChange = (e) => {
         const { name, value } = e.target;
         setForm({ ...form, [name]: value });
     };
 
-    // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            // Make a post request to backend API
             const response = await axios.post('http://localhost:5724/users/signup', {
                 name: form.name,
                 userName: form.userName,
