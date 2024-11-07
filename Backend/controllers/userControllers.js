@@ -16,6 +16,18 @@ module.exports.signup = async (req, res) => {
 
 module.exports.login = async (req, res) => {
     try {
+        // const { userName, password } = req.body;
+        // const token = await bcryptLogin.login(userName, password);
+        // if (!token) {
+        //     return res.status(401).json({ error: "Invalid username or password" });
+        // }
+        // const user = await userModel.findOne({ userName: userName });
+        // if (!user) {
+        //     return res.status(404).json({ error: "User not found" });
+        // }
+        // const role = user.role;
+        // res.json({ token: token, role: role });
+
         const { userName, password } = req.body;
         const token = await bcryptLogin.login(userName, password);
         if (!token) {
@@ -26,7 +38,21 @@ module.exports.login = async (req, res) => {
             return res.status(404).json({ error: "User not found" });
         }
         const role = user.role;
-        res.json({ token: token, role: role });
+
+        // Set the JWT token and role in cookies
+        res.cookie("token", token, {
+            httpOnly: true, // Prevent access to the cookie from JavaScript
+            secure: true, // Use secure cookies in production (HTTPS)
+            maxAge: 7 * 24 * 60 * 60 * 1000, // Expiry of 7 days
+        });
+
+        res.cookie("role", role, {
+            httpOnly: true, // Prevent access to the cookie from JavaScript
+            secure: true,// Use secure cookies in production (HTTPS)
+            maxAge: 7 * 24 * 60 * 60 * 1000, // Expiry of 7 days
+        });
+
+        res.status(200).json({ token: token, role: role });
     } catch (error) {
         res.status(401).json({ error: "Invalid username or password" });
     }
@@ -34,14 +60,29 @@ module.exports.login = async (req, res) => {
 
 module.exports.refreshToken = async (req, res) => {
     try {
-        const { token } = req.body;
+        // const { token } = req.body;
+        // if (!token) {
+        //     return res.status(400).json({ error: "No token provided" }); // Better message for missing token
+        // }
+        // const newToken = await bcryptLogin.refreshToken(token);
+        // if (!newToken) {
+        //     return res.status(401).json({ error: "Failed to refresh token" }); // Clearer error message
+        // }
+        // res.json({ token: newToken });
+        const token = req.cookies.token || req.headers['authorization'].split(' ')[1];
         if (!token) {
-            return res.status(400).json({ error: "No token provided" }); // Better message for missing token
+            return res.status(400).json({ error: "No token provided" });
         }
         const newToken = await bcryptLogin.refreshToken(token);
         if (!newToken) {
-            return res.status(401).json({ error: "Failed to refresh token" }); // Clearer error message
+            return res.status(401).json({ error: "Failed to refresh token" });
         }
+
+        res.cookies('token', newToken, {
+            httpOnly: true,
+            secure: true,
+            maxAge: 7 * 24 * 60 * 60 * 1000,
+        });
         res.json({ token: newToken });
     } catch (error) {
         res.status(401).json({ error: "Invalid token" });
