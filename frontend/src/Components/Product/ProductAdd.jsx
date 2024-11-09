@@ -16,11 +16,27 @@ function ProductAdd() {
         type: '',
     });
 
+    // const handleChange = (e) => {
+    //     setFormData({
+    //         ...formData,
+    //         [e.target.name]: e.target.value,
+    //     });
+    // };
+
     const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value,
-        });
+        const { name, value } = e.target;
+        if (name === "type" && value === "donate") {
+            setFormData((prevFormData) => ({
+                ...prevFormData,
+                [name]: value,
+                price: "0", 
+            }));
+        } else {
+            setFormData((prevFormData) => ({
+                ...prevFormData,
+                [name]: value,
+            }));
+        }
     };
 
     const handleSubmit = async (e) => {
@@ -68,7 +84,7 @@ function ProductAdd() {
                                 type="text"
                                 name="pName"
                                 value={formData.pName}
-                                placeholder="Product name"
+                                placeholder="Enter Product name"
                                 className='input_ProductAdd'
                                 onChange={handleChange}
                                 required
@@ -81,7 +97,7 @@ function ProductAdd() {
                                 type="text"
                                 name="description"
                                 value={formData.description}
-                                placeholder="Description"
+                                placeholder="Enter Description"
                                 className='input_ProductAdd'
                                 onChange={handleChange}
                                 required
@@ -111,10 +127,11 @@ function ProductAdd() {
                                 type="number"
                                 name="price"
                                 value={formData.price}
-                                placeholder="Price"
+                                placeholder="Enter Price"
                                 className='input_ProductAdd'
                                 onChange={handleChange}
                                 required
+                                disabled={formData.type === "donate"}
                             />
                         </div>
 

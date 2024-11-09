@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "../../CSS/Buy&RentPage&Donate.css";
 import noImage from "../../Images/noImage.jpeg";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 export default function RentPage() {
     const token = localStorage.getItem('token');
     const navigate = useNavigate();
     const [cards, setCards] = useState([]);
+    const [search, setSearch] = useState("");
+    const [selectedCategory, setSelectedCategory] = useState("");
 
     useEffect(() => {
         const fetchBuyProducts = async () => {
@@ -17,7 +19,6 @@ export default function RentPage() {
                         Authorization: `Bearer ${token}`
                     }
                 });
-                console.log(response.data.products);
                 setCards(response.data.products);
             } catch (error) {
                 console.log(error);
@@ -36,32 +37,54 @@ export default function RentPage() {
         navigate(`/buynow/${id}`);
     };
 
+    const searchedProduct = cards
+        .filter((card) => card.pName
+            .toLowerCase()
+            .split(" ")
+            .some((word) => word.startsWith(search.toLowerCase())))
+        .filter((card) => card.type === "rent")
+        .filter((card) => selectedCategory ? card.category === selectedCategory : true);
+
     return (
         <>
             <div className="container h-100">
                 <div className="d-flex justify-content-center h-100">
                     <div className="search_BuyRent">
-                        <input className="search_input_BuyRent" type="text" placeholder="Search products here..." />
-                        <a href="#" className="search_icon"><i className="fa fa-search"></i></a>
+                        <input className="search_input_BuyRent fs-5" type="text" placeholder="Search for rent products here..." value={search} onChange={(e) => setSearch(e.target.value)} />
+                        <i className="search_icon"><i className="fa fa-search"></i></i>
+                    </div>
+                    <div class="dropdown">
+                        <button style={{ height: "54px", borderRadius: "30px", width: "7rem", backgroundColor: "rgb(223, 177, 93)", color: "black" }} class="btn btn-secondary dropdown-toggle mt-3 fs-5" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Filter
+                        </button>
+                        <ul class="dropdown-menu" style={{ borderRadius: "10px" }}>
+                            <li class="dropdown-item" onClick={() => setSelectedCategory("")}>All</li>
+                            <li class="dropdown-item" onClick={() => setSelectedCategory("electronics")}>Electronics</li>
+                            <li class="dropdown-item" onClick={() => setSelectedCategory("grocery")}>Grocery</li>
+                            <li class="dropdown-item" onClick={() => setSelectedCategory("clothing")}>Clothing</li>
+                            <li class="dropdown-item" onClick={() => setSelectedCategory("toys")}>Toys</li>
+                        </ul>
                     </div>
                 </div>
             </div>
             <div className="card-grid_BuyRent">
-                {cards.map((card) => (
-                    card.type === "rent" ? (
+                {searchedProduct.length > 0 ? (
+                    searchedProduct.map((card) => (
                         <div key={card._id} className="card-style_BuyRent">
                             <img src={noImage} className="image-style_BuyRent" alt={card.image} />
-                            <div className="card-content_BuyRent">
+                            <div className="card-content_BuyRent" style={{ marginBottom: "1rem" }}>
                                 <h3>{card.pName}</h3>
                                 <p className="card-text text-truncate">{card.description}</p>
-                                <p>Price: {card.price}/month</p>
+                                <p>Price: ₹ {card.price}</p>
                             </div>
                             <div className="card-bottom_BuyRent">
-                                    <button className="btn" style={{ backgroundColor: "rgb(223, 177, 93)" }} onClick={() => handleBuyNow(card._id)}>Rent NOW</button>
+                                <button className="btn" style={{ backgroundColor: "rgb(223, 177, 93)" }} onClick={() => handleBuyNow(card._id)}>RENT NOW</button>
                             </div>
                         </div>
-                    ) : null
-                ))}
+                    ))
+                ) : (
+                    <h1>No Products Found</h1>
+                )}
             </div>
         </>
     );

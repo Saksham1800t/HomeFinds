@@ -7,7 +7,7 @@ function generateToken(user) {
         userName: user.userName,
         role: user.role,
     }
-    return jwt.sign(payload, secretKey, { expiresIn: '1h' });
+    return jwt.sign(payload, secretKey, { expiresIn: '7d' });
 }
 
 module.exports = { generateToken };
