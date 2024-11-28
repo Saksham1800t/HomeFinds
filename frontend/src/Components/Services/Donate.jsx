@@ -71,7 +71,7 @@ export default function BuyPage() {
                 {searchedProduct.length > 0 ? (
                     searchedProduct.map((card) => (
                         <div key={card._id} className="card-style_BuyRent">
-                            <img src={noImage} className="image-style_BuyRent" alt={card.image} />
+                            <img src={card.imageUrl ? card.imageUrl : noImage} className="image-style_BuyRent" alt={card.image} />
                             <div className="card-content_BuyRent" style={{ marginBottom: "1rem" }}>
                                 <h3>{card.pName}</h3>
                                 <p className="card-text text-truncate">{card.description}</p>

@@ -14,6 +14,7 @@ function ProductAdd() {
         category: '',
         price: '',
         type: '',
+        image: null,
     });
 
     // const handleChange = (e) => {
@@ -29,7 +30,7 @@ function ProductAdd() {
             setFormData((prevFormData) => ({
                 ...prevFormData,
                 [name]: value,
-                price: "0", 
+                price: "0",
             }));
         } else {
             setFormData((prevFormData) => ({
@@ -37,6 +38,14 @@ function ProductAdd() {
                 [name]: value,
             }));
         }
+    };
+
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        setFormData((prevFormData) => ({
+            ...prevFormData,
+            image: file,
+        }));
     };
 
     const handleSubmit = async (e) => {
@@ -47,17 +56,26 @@ function ProductAdd() {
             return;
         }
 
+        const formDataToSend = new FormData();
+        formDataToSend.append('pName', formData.pName);
+        formDataToSend.append('description', formData.description);
+        formDataToSend.append('category', formData.category);
+        formDataToSend.append('price', formData.price);
+        formDataToSend.append('type', formData.type);
+        formDataToSend.append('image', formData.image);
+
         try {
             console.log(formData);
-            const response = await axios.post('http://localhost:5724/products/add-product', formData, {
+            const response = await axios.post('http://localhost:5724/products/add-product', formDataToSend, {
                 headers: {
-                    Authorization: `Bearer ${token}`
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'multipart/form-data',
                 }
             });
             console.log(response.data);
             if (response.status === 201) {
                 alert('Product added successfully');
-                setFormData({ pName: '', description: '', category: '', price: '', type: '' });
+                setFormData({ pName: '', description: '', category: '', price: '', type: '', image: null });
                 navigate('/');
             } else {
                 alert('Failed to add product');
@@ -118,6 +136,7 @@ function ProductAdd() {
                                 <option value="electronics">Electronics</option>
                                 <option value="clothing">Clothing</option>
                                 <option value="grocery">Grocery</option>
+                                <option value="toys">Toys</option>
                             </select>
                         </div>
 
@@ -150,6 +169,12 @@ function ProductAdd() {
                                 <option value="donate">Donate</option>
                             </select>
                         </div>
+
+                        <div className="form-group_ProductAdd">
+                            <label class="label_ProductAdd" for="customFile"><b>Product Image :</b></label>
+                            <input type="file" accept='image/*' name='image' onChange={handleImageChange} class="form-control" id="customFile" />
+                        </div>
+
 
                         <div className="form-group_ProductAdd">
                             <button className='Button_ProductAdd' type="submit">Submit</button>

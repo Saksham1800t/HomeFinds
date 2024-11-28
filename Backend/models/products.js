@@ -27,6 +27,9 @@ const productSchema = new mongoose.Schema({
         ref: 'users',
         required: true
     },
+    imageUrl: {
+        type: String,
+    },
     created_at: {
         type: String,
     },

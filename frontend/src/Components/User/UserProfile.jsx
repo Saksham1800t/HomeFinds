@@ -3,6 +3,7 @@ import '../../CSS/UserProfile.css';
 import userImage from '../../Images/user.jpg';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
+import noImage from '../../Images/noImage.jpeg';
 
 const UserProfile = () => {
     const navigate = useNavigate();
@@ -29,9 +30,7 @@ const UserProfile = () => {
                     }
                 );
                 setUser(response.data.user);
-                console.log(response.data.user);
                 const result = await axios.post('http://localhost:5724/products/get-user-products', {}, { headers: { Authorization: `Bearer ${token}` } });
-                console.log(result.data.product);
                 setProduct(result.data.product);
             } catch (err) {
                 console.log(err);
@@ -74,6 +73,10 @@ const UserProfile = () => {
 
     const handleUpdateProduct = (id) => {
         navigate(`/updateProduct/${id}`);
+    }
+
+    const handleNavigate = (id) => {
+        navigate(`/buynow/${id}`);
     }
 
     return (
@@ -138,26 +141,42 @@ const UserProfile = () => {
 
                 <div className="container mt-4">
                     <h1 className="text-left">Your Products :</h1>
-                    <div className="mt-4" style={{ marginRight: "1rem" }}>
+
+                    <div className="mt-4">
                         {product.map((product) => {
                             return (
-                                <div className="col-md-9 mt-1" style={{ boxShadow: "10px 10px 20px 0 rgba(0, 0, 0, 1);" }}>
-                                    <div className="card container">
-                                        <div className="card-body">
-                                            <h5 className="card-title fs-4">{product.pName}</h5>
-                                            <p className="card-text text-truncate" style={{maxWidth: "200px"}}>{product.description}</p>
-                                            <p className="card-text fs-6"><b>For:</b> {product.type}</p>
-                                            <p className="card-text fs-6"><b>Price:</b> &#8377;{product.price}</p>
+                                <div className="col-xl-10 mt-3">
+                                    <div className="card container p-3">
+                                        <div className="card-body d-flex justify-content-between align-items-start" onClick={() => handleNavigate(product._id)} style={{ cursor: 'pointer' }}>
+                                            <div className="me-3">
+                                                <h5 className="card-title fs-4">{product.pName}</h5>
+                                                <p className="card-text text-truncate" style={{ maxWidth: "200px" }}>{product.description}</p>
+                                                <p className="card-text fs-6"><b>For:</b> {product.type}</p>
+                                                <p className="card-text fs-6"><b>Price:</b> &#8377;{product.price}</p>
+                                            </div>
+
+                                            <div className="d-flex justify-content-center align-items-center">
+                                                <img
+                                                    style={{ height: "7rem", width: "9rem", objectFit: "cover" }}
+                                                    src={product.imageUrl ? product.imageUrl : noImage}
+                                                    alt={product.pName}
+                                                />
+                                            </div>
                                         </div>
-                                        <div>
-                                            <button className="btn btn-primary mt-1 mb-2 mx-3 col-md-1" onClick={() => handleUpdateProduct(product._id)}>Edit</button>
-                                            <button className="btn btn-danger mt-1 mb-2 mx-2" onClick={() => handleDeleteProduct(product._id)}>Delete</button>
+                                        <div className="d-flex mt-3">
+                                            <button className="btn btn-primary col-1 mx-2" onClick={() => handleUpdateProduct(product._id)}>
+                                                Edit
+                                            </button>
+                                            <button className="btn btn-danger col-1 mx-2" onClick={() => handleDeleteProduct(product._id)}>
+                                                Delete
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
                             );
                         })}
                     </div>
+
                 </div>
             </div>
 

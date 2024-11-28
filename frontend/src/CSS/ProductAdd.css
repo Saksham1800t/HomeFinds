@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  max-height: 100vh;
+  max-height: 105vh;
   padding: 30px 40px;
   margin-left: 15rem;
   margin-top: 1rem;
@@ -34,7 +34,7 @@
   background: rgb(223, 177, 93);
   border: none;
   border-radius: 40px;
-  margin: 2rem 0;
+  margin: 2rem 0 1rem 0;
   margin-left: 4rem;
   cursor: pointer;
   font-size: 16px;

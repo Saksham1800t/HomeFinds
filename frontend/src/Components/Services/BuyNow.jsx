@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../../CSS/BuyNow.css';
 import profile from '../../Images/profile.jpg';
-import radio from '../../Images/radio-removebg-preview.png';
+import noImage from '../../Images/noImage.jpeg';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
@@ -34,7 +34,7 @@ function ProductInfo() {
           <div className="row">
             <div className="col-md-8">
               <img
-                src={radio}
+                src={product.imageUrl ? product.imageUrl : noImage}
                 alt="radio"
                 className="img_BuyNow"
                 style={{ margin: "1.2rem 0px 0px 6rem " }}
