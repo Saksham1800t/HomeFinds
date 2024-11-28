@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import '../../CSS/Navbar2.css'; // Import CSS for additional styling
 import logo from '../../Images/logo.png';
-import profile from '../../Images/profile.jpg';
+import profile from '../../Images/user.jpg';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Navbar() {
     const token = localStorage.getItem('token');
@@ -16,6 +17,37 @@ function Navbar() {
         navigate('/');
         alert('Logged out successfully :(');
     };
+
+    const [user, setUser] = useState('');
+
+    useEffect(() => {
+        if (!token) {
+            alert('Please login to view your profile');
+            navigate('/login');
+            return;
+        }
+
+        const getUser = async () => {
+            try {
+                const response = await axios.post(
+                    'http://localhost:5724/users/getUserData',
+                    {},
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                        }
+                    }
+                );
+                console.log(response.data);
+                setUser(response.data.user);
+            } catch (err) {
+                console.log(err);
+            }
+        }
+
+        getUser();
+    }, [token, navigate]);
+
 
     return (
         <nav className="navbar_Navbar2">
@@ -49,7 +81,7 @@ function Navbar() {
                                 <li><Link to="/Signup"><button className="signup_Navbar2 login_Navbar2"><b>SignUp</b></button></Link></li>
                             </>
                         }
-                        <li><Link to="/userprofile"><img src={profile} className="image_Navbar2"></img></Link></li>
+                        <li><Link to="/userprofile"><img src={user.userImageUrl ? user.userImageUrl : profile} className="image_Navbar2"></img></Link></li>
                     </ul>
                 </div>
             </div>

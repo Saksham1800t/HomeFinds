@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../../CSS/BuyNow.css';
-import profile from '../../Images/profile.jpg';
+import profile from '../../Images/user.jpg';
 import noImage from '../../Images/noImage.jpeg';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
@@ -71,7 +71,7 @@ function ProductInfo() {
           <hr />
 
           <div className="seller_BuyNow d-flex">
-            <img src={profile} className="image_BuyNow" alt="profile" />
+            <img src={seller.userImageUrl ? seller.userImageUrl : profile} className="image_BuyNow" alt="profile" />
             <div className="heading_BuyNow">
               <h3>Seller</h3>
               <p><b>Name:</b> {seller.userName}</p>

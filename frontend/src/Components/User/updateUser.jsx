@@ -4,11 +4,10 @@ import { IoMdContacts } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
 import "../../CSS/Signup.css";
 import bg from "../../Images/bg.avif";
-import { Link } from 'react-router-dom';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
-function updateUser() {
+function UpdateUser() {
     const navigate = useNavigate();
     const token = localStorage.getItem('token');
     const [form, setForm] = useState({
@@ -17,7 +16,8 @@ function updateUser() {
         email: '',
         contact: '',
         address: '',
-        pincode: ''
+        pincode: '',
+        profileImage: null, // To handle profile image
     });
 
     useEffect(() => {
@@ -25,8 +25,8 @@ function updateUser() {
             try {
                 const response = await axios.post('http://localhost:5724/users/getUserData', {}, {
                     headers: {
-                        Authorization: `Bearer ${token}`
-                    }
+                        Authorization: `Bearer ${token}`,
+                    },
                 });
                 const user = response.data.user;
                 setForm({
@@ -35,7 +35,8 @@ function updateUser() {
                     email: user.email,
                     contact: user.contact,
                     address: user.address,
-                    pincode: user.pincode
+                    pincode: user.pincode,
+                    profileImage: user.profileImage || null, // Display existing image if available
                 });
             } catch (err) {
                 console.log(err);
@@ -55,23 +56,35 @@ function updateUser() {
         setForm({ ...form, [name]: value });
     };
 
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        setForm({ ...form, profileImage: file }); // Handle image change
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Prepare the form data for submission, including the profile image if selected
+        const formData = new FormData();
+        formData.append('name', form.name);
+        formData.append('userName', form.userName);
+        formData.append('email', form.email);
+        formData.append('contact', form.contact);
+        formData.append('address', form.address);
+        formData.append('pincode', form.pincode);
+        if (form.profileImage) {
+            formData.append('profileImage', form.profileImage); // Append profile image
+        }
+
         try {
-            const response = await axios.post('http://localhost:5724/users/updateUser', {
-                name: form.name,
-                userName: form.userName,
-                email: form.email,
-                contact: form.contact,
-                address: form.address,
-                pincode: form.pincode
-            }, {
+            const response = await axios.post('http://localhost:5724/users/updateUser', formData, {
                 headers: {
-                    Authorization: `Bearer ${token}`
-                }
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'multipart/form-data', // Ensure the correct content type for file upload
+                },
             });
             console.log(response.data);
-            alert('User Profile Updated successfully Successful on our website');
+            alert('User Profile Updated Successfully');
             navigate('/userprofile');
         } catch (err) {
             console.log(err);
@@ -95,8 +108,9 @@ function updateUser() {
                 <div className="login-container_Signup">
                     <div>
                         <form onSubmit={handleSubmit}>
-                            <h2 className="mb-4 fs-5"><b><u>Signup for new account</u></b></h2>
+                            <h2 className="mb-4 fs-5"><b><u>Update Your Profile</u></b></h2>
 
+                            {/* Name Field */}
                             <div className="form-group">
                                 <label className="label_Signup">
                                     <FaUser className="icon_Signup" />
@@ -113,6 +127,7 @@ function updateUser() {
                                 />
                             </div>
 
+                            {/* Username Field */}
                             <div className="form-group">
                                 <label className="label_Signup">
                                     <FaUser className="icon_Signup" />
@@ -129,6 +144,7 @@ function updateUser() {
                                 />
                             </div>
 
+                            {/* Email Field */}
                             <div className="form-group_Signup">
                                 <label className="label_Signup">
                                     <MdEmail className="icon_Signup" />
@@ -145,6 +161,7 @@ function updateUser() {
                                 />
                             </div>
 
+                            {/* Contact Field */}
                             <div className="form-group_Signup">
                                 <label className="label_Signup">
                                     <IoMdContacts className="icon_Signup" />
@@ -161,6 +178,7 @@ function updateUser() {
                                 />
                             </div>
 
+                            {/* Address Field */}
                             <div className="form-group_Signup">
                                 <label className="label_Signup">
                                     <FaHome className="icon_Signup" />
@@ -177,6 +195,7 @@ function updateUser() {
                                 />
                             </div>
 
+                            {/* Pincode Field */}
                             <div className="form-group_Signup">
                                 <label className="label_Signup">
                                     <b>Pincode:</b>
@@ -192,8 +211,23 @@ function updateUser() {
                                 />
                             </div>
 
+                            {/* Profile Image Field */}
+                            <div className="form-group_Signup">
+                                <label className="label_Signup">
+                                    <b>Profile Image:</b>
+                                </label>
+                                <input
+                                    className="input_Signup"
+                                    type="file"
+                                    name="profileImage"
+                                    accept="image/*"
+                                    onChange={handleImageChange} // Handle image change
+                                />
+                            </div>
+
+                            {/* Submit Button */}
                             <div className="form-group_Signup mt-2">
-                                    <button className="button_Signup" type="submit">Update</button>
+                                <button className="button_Signup" type="submit">Update</button>
                             </div>
                         </form>
                     </div>
@@ -203,4 +237,4 @@ function updateUser() {
     );
 }
 
-export default updateUser;
+export default UpdateUser;

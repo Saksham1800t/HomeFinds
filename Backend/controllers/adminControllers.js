@@ -6,7 +6,7 @@ module.exports.getUsers = async (req, res) => {
         if (req.user.role !== "admin") {
             return res.status(403).json({ message: "Unauthorized" });
         } else {
-            const users = await userModel.find();
+            const users = await userModel.find({role: 'user'});
             res.status(200).json(users);
         }
     } catch (error) {

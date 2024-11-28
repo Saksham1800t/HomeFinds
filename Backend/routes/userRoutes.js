@@ -3,6 +3,7 @@ const router = express.Router();
 const cors = require('cors');
 const userControllers = require('../controllers/userControllers');
 const auth = require('../utils/authJwt');
+const upload = require('../configs/multer');
 
 router.use(cors());
 router.post('/signup', userControllers.signup);

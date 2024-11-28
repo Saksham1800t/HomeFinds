@@ -91,7 +91,7 @@ const UserProfile = () => {
                                         <div className="bg-c-lite-green user-profile">
                                             <div className="card-block text-center text-white d-flex mt-2">
                                                 <div>
-                                                    <img src={userImage} className="img-radius" alt="User-Profile-Image" />
+                                                    <img src={user.userImageUrl ? user.userImageUrl : userImage} className="img-radius" alt="User-Profile-Image" />
                                                 </div>
                                                 <div className='yoho'>
                                                     <h6 className="f-w-600 name">{user.name}</h6>

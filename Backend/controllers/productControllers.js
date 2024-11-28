@@ -3,27 +3,6 @@ const userModel = require('../models/users');
 const cloudinary = require("../configs/cloudinary");
 const fs = require('fs');
 
-// module.exports.createProduct = async (req, res) => {
-//     try {
-//         const userId = req.user.id;
-
-//         const { pName, description, category, price, type } = req.body;
-//         const product = new productModel({
-//             pName,
-//             description,
-//             category,
-//             price,
-//             type,
-//             addedBy: userId
-//         });
-//         const savedProduct = await product.save();
-//         await userModel.findByIdAndUpdate(userId, { $push: { productsCreated: savedProduct._id } });
-//         res.status(201).json({ product: savedProduct, message: "New Product created Successfully" });
-//     } catch (error) {
-//         res.status(400).json({ error: "Failed to create product", details: error.message });
-//     }
-// }
-
 module.exports.createProduct = async (req, res) => {
     try {
         const userId = req.user.id;
@@ -33,7 +12,7 @@ module.exports.createProduct = async (req, res) => {
 
         if (req.file) {
             const uploadResponse = await cloudinary.uploader.upload(req.file.path, {
-                folder: 'homefindsProducts', 
+                folder: 'homefindsProducts',
             });
 
             // Store the secure URL of the uploaded image
@@ -44,7 +23,7 @@ module.exports.createProduct = async (req, res) => {
                     console.error("Failed to delete local image:", err);
                 }
             });
-        } 
+        }
 
         const product = new productModel({
             pName,
@@ -87,7 +66,7 @@ module.exports.getUserProducts = async (req, res) => {
 module.exports.getProductById = async (req, res) => {
     try {
         const id = req.params.id;
-        const product = await productModel.findById(id).populate('addedBy', 'userName email contact address pincode');
+        const product = await productModel.findById(id).populate('addedBy', 'userName email contact address pincode userImageUrl');
         if (!product) {
             return res.status(404).json({ error: "Product not found" });
         }
@@ -102,19 +81,18 @@ module.exports.updateProductData = async (req, res) => {
         const productId = req.params.id;
         const productData = req.body;
 
-if(req.file){
-    const uploadResponse = await cloudinary.uploader.upload(req.file.path, {
-        folder: 'homefindsProducts',
-    });
-    productData.imageUrl = uploadResponse.secure_url;
+        if (req.file) {
+            const uploadResponse = await cloudinary.uploader.upload(req.file.path, {
+                folder: 'homefindsProducts',
+            });
+            productData.imageUrl = uploadResponse.secure_url;
 
-    fs.unlink(req.file.path, (err) => {
-        if (err) {
-            console.error("Failed to delete local image:", err);
+            fs.unlink(req.file.path, (err) => {
+                if (err) {
+                    console.error("Failed to delete local image:", err);
+                }
+            });
         }
-    }
-    );
-}
         const product = await productModel.findByIdAndUpdate
             (productId, productData, { new: true, runValidators: true });
         if (!product) {
@@ -127,20 +105,6 @@ if(req.file){
     }
 }
 
-// module.exports.deleteProduct = async (req, res) => {
-//     try {
-//         const productId = req.params.id;
-//         const product = await productModel.findByIdAndDelete(productId);
-//         if (!product) {
-//             return res.status(404).json({ error: "Product not found" });
-//         }
-
-//         res.json({ message: "Product deleted successfully" });
-//     } catch (error) {
-//         res.status(500).json({ error: "Failed to delete product" });
-//     }
-// }
-
 module.exports.deleteProduct = async (req, res) => {
     try {
         const productId = req.params.id;
@@ -151,8 +115,8 @@ module.exports.deleteProduct = async (req, res) => {
 
         if (product.imageUrl) {
             const urlSegments = product.imageUrl.split('/');
-            const publicIdWithVersion = urlSegments.slice(-2).join('/').split('.')[0]; 
-        
+            const publicIdWithVersion = urlSegments.slice(-2).join('/').split('.')[0];
+
             const deleteResult = await cloudinary.uploader.destroy(publicIdWithVersion);
             if (deleteResult.result !== 'ok') {
                 console.log('Failed to delete image from Cloudinary:', deleteResult);

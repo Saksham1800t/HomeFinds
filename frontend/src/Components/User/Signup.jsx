@@ -17,7 +17,8 @@ function Signup() {
         email: '',
         contact: '',
         address: '',
-        pincode: ''
+        pincode: '',
+        profileImage: null
     });
 
     const handleChange = (e) => {
@@ -25,17 +26,30 @@ function Signup() {
         setForm({ ...form, [name]: value });
     };
 
+    const handleImageChange = (e) => {
+        const file = e.target.files[0]; // Get the first file selected
+        setForm({ ...form, profileImage: file }); // Update the profileImage state
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const formData = new FormData();
+        formData.append('name', form.name);
+        formData.append('userName', form.userName);
+        formData.append('password', form.password);
+        formData.append('email', form.email);
+        formData.append('contact', form.contact);
+        formData.append('address', form.address);
+        formData.append('pincode', form.pincode);
+        if (form.profileImage) {
+            formData.append('profileImage', form.profileImage); 
+        }
+
         try {
-            const response = await axios.post('http://localhost:5724/users/signup', {
-                name: form.name,
-                userName: form.userName,
-                password: form.password,
-                email: form.email,
-                contact: form.contact,
-                address: form.address,
-                pincode: form.pincode
+            const response = await axios.post('http://localhost:5724/users/signup', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data', 
+                },
             });
             console.log(response.data);
             alert('Register Successful on our website');
@@ -172,6 +186,19 @@ function Signup() {
                                     onChange={handleChange}
                                     value={form.pincode}
                                     required
+                                />
+                            </div>
+
+                            <div className="form-group_Signup">
+                                <label className="label_Signup">
+                                    <b>Profile Image:</b>
+                                </label>
+                                <input
+                                    className="input_Signup"
+                                    type="file"
+                                    name="profileImage"
+                                    accept="image/*"
+                                    onChange={handleImageChange} 
                                 />
                             </div>
 
