@@ -27,6 +27,22 @@ function ProductInfo() {
     fetchProduct();
   }, [id]);
 
+  const handleRequest = async () => {
+    try {
+      const response = await axios.post(`http://localhost:5724/request/create_req`, { 
+        productId: product._id
+      }, { 
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } 
+      });
+
+      console.log('Request created:', response.data);
+      alert('Request sent successfully!');
+    } catch (error) {
+      console.error('Error creating request:', error);
+      alert(error.response.data.message);
+    }
+  };
+
   return (
     <div className='background_BuyNOw'>
       <div className="d-flex">
@@ -82,14 +98,14 @@ function ProductInfo() {
           {
             product.type === 'sell' ?
             <>
-            <button className="button_BuyNow"><b>Buy Now</b></button>
+            <button className="button_BuyNow" onClick={handleRequest}><b>Buy Now</b></button>
             </> :
             product.type === 'rent' ?
             <>
-            <button className="button_BuyNow"><b>Rent Now</b></button>
+            <button className="button_BuyNow" onClick={handleRequest}><b>Rent Now</b></button>
             </> :
             <>
-            <button className="button_BuyNow"><b>Make Demand</b></button>
+            <button className="button_BuyNow" onClick={handleRequest}><b>Make Demand</b></button>
             </>
           }
         </div>

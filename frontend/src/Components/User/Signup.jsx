@@ -46,17 +46,13 @@ function Signup() {
         }
 
         try {
-            const response = await axios.post('http://localhost:5724/users/signup', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data', 
-                },
-            });
+            const response = await axios.post('http://localhost:5724/users/signup', formData);
             console.log(response.data);
             alert('Register Successful on our website');
             navigate('/login');
         } catch (err) {
             console.log(err);
-            alert('Registration Failed');
+            alert(err.response?.data?.error || 'Registration failed. Please try again.');
         }
     };
 

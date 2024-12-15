@@ -85,7 +85,7 @@ const UserProfile = () => {
                 <div className="page-content page-container" id="page-content">
                     <div className="padding">
                         <div className="row container d-flex justify-content-center">
-                            <div className="col-xl-12 col-md-0">
+                            <div className="col-xl-12 col-md-12">
                                 <div className="card user-card-full user-page">
                                     <div className="row m-l-0 m-r-0">
                                         <div className="bg-c-lite-green user-profile">
@@ -139,15 +139,13 @@ const UserProfile = () => {
                     </div>
                 </div>
 
-                <div className="container mt-4">
-                    <h1 className="text-left">Your Products :</h1>
+                    <h1 className="text-left fs-1">Your Products :</h1>
 
-                    <div className="mt-4">
+                    <div className="mt-4 ">
                         {product.map((product) => {
                             return (
-                                <div className="col-xl-10 mt-3">
-                                    <div className="card container p-3">
-                                        <div className="card-body d-flex justify-content-between align-items-start" onClick={() => handleNavigate(product._id)} style={{ cursor: 'pointer' }}>
+                                    <div className="card p-2 col-md-9" style= {{boxShadow: " 0 1px 20px 0 rgba(69, 90, 100, 0.08)", marginLeft: "10rem"}}>
+                                        <div className="card-body d-flex justify-content-between align-items-start" onClick={() => handleNavigate(product._id)} style={{ cursor: 'pointer' }} >
                                             <div className="me-3">
                                                 <h5 className="card-title fs-4">{product.pName}</h5>
                                                 <p className="card-text text-truncate" style={{ maxWidth: "200px" }}>{product.description}</p>
@@ -172,12 +170,10 @@ const UserProfile = () => {
                                             </button>
                                         </div>
                                     </div>
-                                </div>
                             );
                         })}
                     </div>
 
-                </div>
             </div>
 
         </>

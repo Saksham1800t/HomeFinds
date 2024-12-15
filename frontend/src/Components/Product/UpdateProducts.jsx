@@ -13,7 +13,7 @@ export default function UpdateProducts() {
         category: '',
         price: '',
         type: '',
-        image: null, // Adding the image field to handle image uploads
+        image: null, 
     });
 
     useEffect(() => {
@@ -35,7 +35,7 @@ export default function UpdateProducts() {
             setFormData((prevFormData) => ({
                 ...prevFormData,
                 [name]: value,
-                price: "0", // Resetting price to 0 for donate type
+                price: "0", 
             }));
         } else {
             setFormData((prevFormData) => ({

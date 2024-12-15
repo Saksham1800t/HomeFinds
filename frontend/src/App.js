@@ -11,12 +11,14 @@ import RentPage from './Components/Services/RentPage';
 import Login from './Components/User/Login';
 import Signup from './Components/User/Signup';
 import UserProfile from './Components/User/UserProfile';
-import UserType from './Components/User/UserType';
+import UserType from './Components/Requests/RequestType';
 import ContactUs from './Components/LandingPages/ContactUs';
 import AllUsers from './Components/Admin/AllUsers';
 import AllProducts from './Components/Admin/AllProducts';
 import UpdateUser from './Components/User/updateUser';
 import UpdateProducts from './Components/Product/UpdateProducts';
+import MadedReq from './Components/Requests/MadedReq'
+import ReceivedReq from './Components/Requests/ReceivedReq'
 
 function App() {
 
@@ -50,7 +52,7 @@ function App() {
       element: <Signup />,
     },
     {
-      path: '/UserType',
+      path: '/RequestType',
       element: <UserType />,
     },
     {
@@ -92,6 +94,14 @@ function App() {
     {
       path: '/Donate',
       element: <Donate />
+    },
+    {
+      path: '/MadedReq',
+      element: <MadedReq/>
+    },
+    {
+      path: '/ReceivedReq',
+      element: <ReceivedReq/>
     }
   ])
   return (

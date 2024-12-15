@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../../CSS/Navbar2.css'; // Import CSS for additional styling
 import logo from '../../Images/logo.png';
@@ -58,15 +58,22 @@ function Navbar() {
                         <li>|</li>
                         <li><Link to="/"><b>Home</b></Link></li>
                         <li>|</li>
-                        <li><Link to="/aboutus"><b>AboutUs</b></Link></li>
-                        <li>|</li>
+                        {role === 'admin' ? null :
+                            <>
+                                <li><Link to="/aboutus"><b>AboutUs</b></Link></li>
+                                <li>|</li>
+                                <li><Link to="/contactus"><b>Contact</b></Link></li>
+                                <li>|</li>
+                            </>}
                         {token == null ? null :
                             <>
                                 <li><Link to="/Productadd"><b>Add Item</b></Link></li>
                                 <li>|</li>
+                                <li><Link to="/requesttype"><b>Requests</b></Link></li>
+
                             </>
                         }
-                        <li><Link to="/contactus"><b>Contact</b></Link></li>
+
                         {role === 'admin' ? <>
                             <li>|</li>
                             <li><Link to='/admindashboard'><b>Admin</b></Link></li> </> : null}

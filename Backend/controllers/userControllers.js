@@ -92,23 +92,6 @@ module.exports.getUserData = async (req, res) => {
 };
 
 module.exports.updateUserData = async (req, res) => {
-    // try {
-    //     const userId = req.user.id;
-    //     const userData = req.body;
-    //     if (userData.password) {
-    //         return res.status(400).json({ error: "Password cannot be updated here" });
-    //     }
-    //     const user = await userModel.findByIdAndUpdate
-    //         (userId, userData, { new: true, runValidators: true });
-    //     if (!user) {
-    //         return res.status(404).json({ error: "User not found" });
-    //     }
-    //     res.json({ user: user, message: "User updated successfully" });
-    // }
-    // catch (error) {
-    //     res.status(401).json({ error: "Failed to update user datails" });
-    // }
-
     upload.single('profileImage')(req, res, async (err) => {
         if (err) {
             return res.status(400).json({ error: 'Error uploading image', details: err.message });
@@ -173,6 +156,21 @@ module.exports.deleteUser = async (req, res) => {
                 console.log('Failed to delete image from Cloudinary:', deleteResult);
             }
         }
+
+        const userProducts = await productModel.find({ addedBy: userId });
+
+        for (const product of userProducts) {
+            if (product.imageUrl) {
+                const urlSegments = product.imageUrl.split('/');
+                const publicIdWithVersion = urlSegments.slice(-2).join('/').split('.')[0];
+
+                const deleteResult = await cloudinary.uploader.destroy(publicIdWithVersion);
+                if (deleteResult.result !== 'ok') {
+                    console.log(`Failed to delete product image (${product._id}) from Cloudinary:`, deleteResult);
+                }
+            }
+        }
+
         await productModel.deleteMany({ addedBy: userId });
         await userModel.findByIdAndDelete(userId);
         res.json({ message: "User and associated products deleted successfully" });
