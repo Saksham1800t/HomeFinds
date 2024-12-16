@@ -36,7 +36,6 @@ const Admin = () => {
           <li className='li_sidebar'><Link className='a_sidebar' to="/admindashboard"><FaHome className="icon_sidebar" /><b>Home</b></Link></li><hr />
           <li className='li_sidebar'><Link className='a_sidebar' to="/adminAllUsers"><FaUserPlus className="icon_sidebar" /><b>Users</b></Link></li><hr />
           <li className='li_sidebar'><Link className='a_sidebar' to="/adminAllProducts"><MdSupervisedUserCircle className="icon_sidebar" /><b>All Products</b></Link></li><hr />
-          <li className='li_sidebar'><a className='a_sidebar' href="#contact"><FaUser className="icon_sidebar" /><b>Sellers</b></a></li><hr />
         </ul>
       </div>
     </div>

@@ -12,7 +12,7 @@ const ProductTableRec = () => {
     useEffect(() => {
         const fetchRequests = async () => {
             try {
-                const response = await axios.post('http://localhost:5724/request/received_req', {}, {
+                const response = await axios.post(process.env.REACT_APP_BACKEND_URL + '/request/received_req', {}, {
                     headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
                 });
                 const filteredRequests = response.data.receivedRequests.filter(request => request.status !== 'rejected');
@@ -27,7 +27,7 @@ const ProductTableRec = () => {
     const handleStatusChange = async (id, status) => {
         try {
             const response = await axios.put(
-                `http://localhost:5724/request/update_req/${id}`,
+                process.env.REACT_APP_BACKEND_URL + `/request/update_req/${id}`,
                 { status },
                 { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
             );

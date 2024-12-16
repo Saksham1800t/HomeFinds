@@ -30,7 +30,7 @@ function Navbar() {
         const getUser = async () => {
             try {
                 const response = await axios.post(
-                    'http://localhost:5724/users/getUserData',
+                    process.env.REACT_APP_BACKEND_URL + '/users/getUserData',
                     {},
                     {
                         headers: {
@@ -38,7 +38,6 @@ function Navbar() {
                         }
                     }
                 );
-                console.log(response.data);
                 setUser(response.data.user);
             } catch (err) {
                 console.log(err);

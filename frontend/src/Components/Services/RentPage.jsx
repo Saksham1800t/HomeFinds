@@ -14,7 +14,7 @@ export default function RentPage() {
     useEffect(() => {
         const fetchBuyProducts = async () => {
             try {
-                const response = await axios.post('http://localhost:5724/products/get-all-products', {}, {
+                const response = await axios.post(process.env.REACT_APP_BACKEND_URL +  '/products/get-all-products', {}, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }

@@ -17,13 +17,6 @@ function ProductAdd() {
         image: null,
     });
 
-    // const handleChange = (e) => {
-    //     setFormData({
-    //         ...formData,
-    //         [e.target.name]: e.target.value,
-    //     });
-    // };
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         if (name === "type" && value === "donate") {
@@ -65,14 +58,12 @@ function ProductAdd() {
         formDataToSend.append('image', formData.image);
 
         try {
-            console.log(formData);
-            const response = await axios.post('http://localhost:5724/products/add-product', formDataToSend, {
+            const response = await axios.post(process.env.REACT_APP_BACKEND_URL + '/products/add-product', formDataToSend, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     'Content-Type': 'multipart/form-data',
                 }
             });
-            console.log(response.data);
             if (response.status === 201) {
                 alert('Product added successfully');
                 setFormData({ pName: '', description: '', category: '', price: '', type: '', image: null });

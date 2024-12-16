@@ -12,7 +12,7 @@ export default function AllUsers() {
         const getUsers = async () => {
             try {
                 const response = await axios.post(
-                    'http://localhost:5724/admin/fetch-users',
+                    process.env.REACT_APP_BACKEND_URL + '/admin/fetch-users',
                     {},
                     {
                         headers: {

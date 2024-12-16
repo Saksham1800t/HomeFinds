@@ -14,8 +14,7 @@ function ProductInfo() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.post(`http://localhost:5724/products/getproduct/${id}`);
-        console.log('Product:', response.data.product);
+        const response = await axios.post(process.env.REACT_APP_BACKEND_URL + `/products/getproduct/${id}`);
         setProduct(response.data.product);
 
         if (response.data.product && response.data.product.addedBy) {
@@ -30,13 +29,12 @@ function ProductInfo() {
 
   const handleRequest = async () => {
     try {
-      const response = await axios.post(`http://localhost:5724/request/create_req`, {
+      const response = await axios.post(process.env.REACT_APP_BACKEND_URL + `/request/create_req`, {
         productId: product._id
       }, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
-
-      console.log('Request created:', response.data);
+      console.log(response);
       alert('Request sent successfully!');
     } catch (error) {
       console.error('Error creating request:', error);

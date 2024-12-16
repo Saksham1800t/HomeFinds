@@ -13,8 +13,7 @@ function ProductInfo() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.post(`http://localhost:5724/products/getproduct/${id}`);
-        console.log('Product:', response.data.product);
+        const response = await axios.post(process.env.REACT_APP_BACKEND_URL + `/products/getproduct/${id}`);
         setProduct(response.data.product);
 
         if (response.data.product && response.data.product.addedBy) {

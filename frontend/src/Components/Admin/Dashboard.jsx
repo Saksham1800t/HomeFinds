@@ -17,7 +17,7 @@ function Dashboard() {
 
     const fetchCounts = async () => {
         try {
-            const response = await axios.post('http://localhost:5724/admin/fetch-counts', {}, {
+            const response = await axios.post(process.env.REACT_APP_BACKEND_URL + '/admin/fetch-counts', {}, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

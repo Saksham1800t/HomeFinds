@@ -12,7 +12,7 @@ const ProductTable = () => {
     useEffect(() => {
         const fetchRequests = async () => {
             try {
-                const response = await axios.post('http://localhost:5724/request/maked_req', {}, {
+                const response = await axios.post(process.env.REACT_APP_BACKEND_URL + '/request/maked_req', {}, {
                     headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
                 });
                 setRequests(response.data.madeRequests);
@@ -26,7 +26,7 @@ const ProductTable = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:5724/request/delete_req/${id}`, {
+            await axios.delete(process.env.REACT_APP_BACKEND_URL + `/request/delete_req/${id}`, {
                 headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
             });
             setRequests(requests.filter(request => request._id !== id));

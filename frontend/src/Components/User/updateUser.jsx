@@ -23,7 +23,7 @@ function UpdateUser() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.post('http://localhost:5724/users/getUserData', {}, {
+                const response = await axios.post(process.env.REACT_APP_BACKEND_URL +  '/users/getUserData', {}, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -77,13 +77,13 @@ function UpdateUser() {
         }
 
         try {
-            const response = await axios.post('http://localhost:5724/users/updateUser', formData, {
+            const response = await axios.post(process.env.REACT_APP_BACKEND_URL + '/users/updateUser', formData, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     'Content-Type': 'multipart/form-data', // Ensure the correct content type for file upload
                 },
             });
-            console.log(response.data);
+            console.log(response);
             alert('User Profile Updated Successfully');
             navigate('/userprofile');
         } catch (err) {
@@ -110,7 +110,6 @@ function UpdateUser() {
                         <form onSubmit={handleSubmit}>
                             <h2 className="mb-4 fs-5"><b><u>Update Your Profile</u></b></h2>
 
-                            {/* Name Field */}
                             <div className="form-group">
                                 <label className="label_Signup">
                                     <FaUser className="icon_Signup" />
@@ -127,7 +126,6 @@ function UpdateUser() {
                                 />
                             </div>
 
-                            {/* Username Field */}
                             <div className="form-group">
                                 <label className="label_Signup">
                                     <FaUser className="icon_Signup" />
@@ -144,7 +142,6 @@ function UpdateUser() {
                                 />
                             </div>
 
-                            {/* Email Field */}
                             <div className="form-group_Signup">
                                 <label className="label_Signup">
                                     <MdEmail className="icon_Signup" />
@@ -161,7 +158,6 @@ function UpdateUser() {
                                 />
                             </div>
 
-                            {/* Contact Field */}
                             <div className="form-group_Signup">
                                 <label className="label_Signup">
                                     <IoMdContacts className="icon_Signup" />
@@ -178,7 +174,6 @@ function UpdateUser() {
                                 />
                             </div>
 
-                            {/* Address Field */}
                             <div className="form-group_Signup">
                                 <label className="label_Signup">
                                     <FaHome className="icon_Signup" />
@@ -195,7 +190,6 @@ function UpdateUser() {
                                 />
                             </div>
 
-                            {/* Pincode Field */}
                             <div className="form-group_Signup">
                                 <label className="label_Signup">
                                     <b>Pincode:</b>
@@ -211,7 +205,6 @@ function UpdateUser() {
                                 />
                             </div>
 
-                            {/* Profile Image Field */}
                             <div className="form-group_Signup">
                                 <label className="label_Signup">
                                     <b>Profile Image:</b>
@@ -225,7 +218,6 @@ function UpdateUser() {
                                 />
                             </div>
 
-                            {/* Submit Button */}
                             <div className="form-group_Signup mt-2">
                                 <button className="button_Signup" type="submit">Update</button>
                             </div>

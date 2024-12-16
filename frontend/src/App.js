@@ -1,6 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import AboutUs from './Components/LandingPages/AboutUs';
-import AdminLogin from './Components/Admin/AdminLogin';
 import AdminDashboard from './Components/Admin/Dashboard';
 import BuyNow from './Components/Services/BuyNow';
 import BuyPage from './Components/Services/BuyPage';
@@ -72,10 +71,6 @@ function App() {
     {
       path: '/updateUser',
       element: <UpdateUser />,
-    },
-    {
-      path: '/AdminLogin',
-      element: <AdminLogin />
     },
     {
       path: '/AdminDashboard',

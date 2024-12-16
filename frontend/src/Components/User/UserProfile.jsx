@@ -21,7 +21,7 @@ const UserProfile = () => {
         const getUser = async () => {
             try {
                 const response = await axios.post(
-                    'http://localhost:5724/users/getUserData',
+                    process.env.REACT_APP_BACKEND_URL + '/users/getUserData',
                     {},
                     {
                         headers: {
@@ -30,7 +30,7 @@ const UserProfile = () => {
                     }
                 );
                 setUser(response.data.user);
-                const result = await axios.post('http://localhost:5724/products/get-user-products', {}, { headers: { Authorization: `Bearer ${token}` } });
+                const result = await axios.post(process.env.REACT_APP_BACKEND_URL +  '/products/get-user-products', {}, { headers: { Authorization: `Bearer ${token}` } });
                 setProduct(result.data.product);
             } catch (err) {
                 console.log(err);
@@ -42,7 +42,7 @@ const UserProfile = () => {
 
     const handleDeleteProfile = async () => {
         try {
-            await axios.post('http://localhost:5724/users/deleteUser', {}, {
+            await axios.post(process.env.REACT_APP_BACKEND_URL +  '/users/deleteUser', {}, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -58,7 +58,7 @@ const UserProfile = () => {
 
     const handleDeleteProduct = async (productId) => {
         try {
-            await axios.post(`http://localhost:5724/products/delete-product/${productId}`, {}, {
+            await axios.post(process.env.REACT_APP_BACKEND_URL +  `/products/delete-product/${productId}`, {}, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

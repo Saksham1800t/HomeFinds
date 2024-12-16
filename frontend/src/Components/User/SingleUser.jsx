@@ -20,7 +20,7 @@ const SingleUser = () => {
         const getUser = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:5724/users/getSingleUserData/${id}`);
+                    process.env.REACT_APP_BACKEND_URL +  `/users/getSingleUserData/${id}`);
                 setUser(response.data.user);
             } catch (err) {
                 console.log(err);

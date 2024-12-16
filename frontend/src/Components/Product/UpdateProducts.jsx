@@ -19,8 +19,7 @@ export default function UpdateProducts() {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await axios.post(`http://localhost:5724/products/getproduct/${id}`);
-                console.log('Product:', response.data.product);
+                const response = await axios.post(process.env.REACT_APP_BACKEND_URL + `/products/getproduct/${id}`);
                 setFormData(response.data.product);
             } catch (error) {
                 console.error('Error fetching product:', error);
@@ -73,15 +72,15 @@ export default function UpdateProducts() {
         }
 
         try {
-            const response = await axios.post(`http://localhost:5724/products/update-product/${id}`, formDataToSend, {
+            const response = await axios.post(process.env.REACT_APP_BACKEND_URL + `/products/update-product/${id}`, formDataToSend, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                     'Content-Type': 'multipart/form-data',
                 }
             });
-            console.log('Product updated:', response.data);
+            console.log(response);
             alert('Product updated successfully');
-            navigate('/userProfile'); // Redirect after success
+            navigate('/userProfile'); 
         } catch (error) {
             console.error('Error updating product:', error);
             alert('Failed to update product');

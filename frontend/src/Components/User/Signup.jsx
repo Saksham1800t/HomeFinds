@@ -27,8 +27,8 @@ function Signup() {
     };
 
     const handleImageChange = (e) => {
-        const file = e.target.files[0]; // Get the first file selected
-        setForm({ ...form, profileImage: file }); // Update the profileImage state
+        const file = e.target.files[0]; 
+        setForm({ ...form, profileImage: file }); 
     };
 
     const handleSubmit = async (e) => {
@@ -46,10 +46,11 @@ function Signup() {
         }
 
         try {
-            const response = await axios.post('http://localhost:5724/users/signup', formData);
-            console.log(response.data);
+            const response = await axios.post(process.env.REACT_APP_BACKEND_URL + '/users/signup', formData);
             alert('Register Successful on our website');
             navigate('/login');
+            console.log(response);
+            
         } catch (err) {
             console.log(err);
             alert(err.response?.data?.error || 'Registration failed. Please try again.');

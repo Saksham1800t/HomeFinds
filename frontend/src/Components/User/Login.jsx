@@ -24,13 +24,12 @@ function Login() {
             return;
         }
         try {
-            const response = await axios.post('http://localhost:5724/users/login', {
+            const response = await axios.post(process.env.REACT_APP_BACKEND_URL +  '/users/login', {
                 userName: form.userName,
                 password: form.password
             });
             localStorage.setItem('token', response.data.token);
             localStorage.setItem('role', response.data.role);
-            console.log(response); 
             alert('Login Successful');
             navigate('/');
         } catch (error) {

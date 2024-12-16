@@ -12,7 +12,7 @@ export default function AllProducts() {
         const getProducts = async () => {
             try {
                 const response = await axios.post(
-                    'http://localhost:5724/products/get-all-products',
+                    process.env.REACT_APP_BACKEND_URL + '/get-all-products',
                     {},
                     {
                         headers: {
