@@ -19,6 +19,8 @@ import UpdateUser from './Components/User/updateUser';
 import UpdateProducts from './Components/Product/UpdateProducts';
 import MadedReq from './Components/Requests/MadedReq'
 import ReceivedReq from './Components/Requests/ReceivedReq'
+import SingleUser from './Components/User/SingleUser';
+import SingleProduct from './Components/Product/SingleProduct';
 
 function App() {
 
@@ -26,6 +28,14 @@ function App() {
     {
       path: '/',
       element: <Home />
+    },
+    {
+      path: '/singleuser/:id',
+      element: <SingleUser />,
+    },
+    {
+      path: '/singleproduct/:id',
+      element: <SingleProduct />,
     },
     {
       path: '/contactus',

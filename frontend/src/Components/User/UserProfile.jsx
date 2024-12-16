@@ -141,7 +141,7 @@ const UserProfile = () => {
 
                     <h1 className="text-left fs-1">Your Products :</h1>
 
-                    <div className="mt-4 ">
+                    <div className="mt-4">
                         {product.map((product) => {
                             return (
                                     <div className="card p-2 col-md-9" style= {{boxShadow: " 0 1px 20px 0 rgba(69, 90, 100, 0.08)", marginLeft: "10rem"}}>
@@ -173,41 +173,7 @@ const UserProfile = () => {
                             );
                         })}
                     </div>
-                    <div className="mt-4">
-                        {product.map((product) => {
-                            return (
-                                <div className="col-xl-10 mt-3">
-                                    <div className="card container p-3">
-                                            <div className="card-body d-flex justify-content-between align-items-start" onClick={()=>handleNavigate(product._id)} style={{cursor: 'pointer'}}>
-                                                <div className="me-3">
-                                                    <h5 className="card-title fs-4">{product.pName}</h5>
-                                                    <p className="card-text text-truncate" style={{ maxWidth: "200px" }}>{product.description}</p>
-                                                    <p className="card-text fs-6"><b>For:</b> {product.type}</p>
-                                                    <p className="card-text fs-6"><b>Price:</b> &#8377;{product.price}</p>
-                                                </div>
-
-                                                <div className="d-flex justify-content-center align-items-center">
-                                                    <img
-                                                        style={{ height: "7rem", width: "9rem", objectFit: "cover" }}
-                                                        src={product.imageUrl ? product.imageUrl : noImage}
-                                                        alt={product.pName}
-                                                    />
-                                                </div>
-                                            </div>
-                                        <div className="d-flex mt-3">
-                                            <button className="btn btn-primary col-1 mx-2" onClick={() => handleUpdateProduct(product._id)}>
-                                                Edit
-                                            </button>
-                                            <button className="btn btn-danger col-1 mx-2" onClick={() => handleDeleteProduct(product._id)}>
-                                                Delete
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            );
-                        })}
-                    </div>
-
+                  
             </div>
 
         </>

@@ -2,14 +2,13 @@ import React, { useState, useEffect } from 'react';
 import '../../CSS/BuyNow.css';
 import profile from '../../Images/user.jpg';
 import noImage from '../../Images/noImage.jpeg';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 function ProductInfo() {
   const { id } = useParams();
   const [product, setProduct] = useState({});
-  const [seller, setSeller] = useState({});
-  const navigate = useNavigate();
+  const [seller, setSeller] = useState({}); 
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -28,25 +27,6 @@ function ProductInfo() {
     fetchProduct();
   }, [id]);
 
-  const handleRequest = async () => {
-    try {
-      const response = await axios.post(`http://localhost:5724/request/create_req`, {
-        productId: product._id
-      }, {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
-      });
-
-      console.log('Request created:', response.data);
-      alert('Request sent successfully!');
-    } catch (error) {
-      console.error('Error creating request:', error);
-      alert(error.response.data.message);
-    }
-  };
-
-  const handleSingleUser = (id) => {
-    navigate(`/singleuser/${id}`);
-  }
 
   return (
     <div className='background_BuyNOw'>
@@ -75,23 +55,23 @@ function ProductInfo() {
 
         <div className="Detail_BuyNow">
           <div className="price_BuyNow">
-            {product.type === 'sell' ?
+            {product.type === 'sell'? 
               <>
                 <h5 className="text-danger fs-4"><b>Rs. {product.price}</b></h5>
                 <h6><br />Inclusive of all taxes. No Cost EMI available.</h6>
               </> : product.type === 'rent' ?
+              <>
+                <h5 className="text-danger fs-4"><b>Rs. {product.price}/month</b></h5>
+                <h6><br />Inclusive of all taxes. EMI starts at ₹242</h6>
+                </> : 
                 <>
-                  <h5 className="text-danger fs-4"><b>Rs. {product.price}/month</b></h5>
-                  <h6><br />Inclusive of all taxes. EMI starts at ₹242</h6>
-                </> :
-                <>
-                  <h5 className="text-danger fs-1"><b>FREE !!!</b></h5>
+                <h5 className="text-danger fs-1"><b>FREE !!!</b></h5>
                 </>
             }
           </div>
           <hr />
 
-          <div className="seller_BuyNow d-flex" onClick={() => handleSingleUser(seller._id)} style={{ cursor: 'pointer' }}>
+          <div className="seller_BuyNow d-flex">
             <img src={seller.userImageUrl ? seller.userImageUrl : profile} className="image_BuyNow" alt="profile" />
             <div className="heading_BuyNow">
               <h3>Seller</h3>
@@ -99,20 +79,6 @@ function ProductInfo() {
               <p><b>Contact:</b> {seller.contact}</p>
             </div>
           </div>
-
-          {
-            product.type === 'sell' ?
-              <>
-                <button className="button_BuyNow" onClick={handleRequest}><b>Buy Now</b></button>
-              </> :
-              product.type === 'rent' ?
-                <>
-                  <button className="button_BuyNow" onClick={handleRequest}><b>Rent Now</b></button>
-                </> :
-                <>
-                  <button className="button_BuyNow" onClick={handleRequest}><b>Make Demand</b></button>
-                </>
-          }
         </div>
       </div>
     </div>

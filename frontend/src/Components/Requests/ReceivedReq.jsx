@@ -2,10 +2,12 @@ import React, { useEffect, useState, useRef } from 'react';
 import user from '../../Images/user.jpg';
 import noImage from '../../Images/noImage.jpeg';
 import recp_logo from '../../Images/rec_logo.png';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const ProductTableRec = () => {
     const [requests, setRequests] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchRequests = async () => {
@@ -136,6 +138,13 @@ const ProductTableRec = () => {
         printWindow.document.close();
     };
 
+    const handleSingleUser = (id) => {
+        navigate(`/singleuser/${id}`);
+    }
+
+    const handleSingleProduct = (id) => {
+        navigate(`/singleproduct/${id}`);
+    }
 
     return (
         <>
@@ -160,7 +169,7 @@ const ProductTableRec = () => {
                             .map((request, index) => (
                                 <tr key={request._id} id={`request-${request._id}`}>
                                     <td>{index + 1}</td>
-                                    <td className="text-center">
+                                    <td className="text-center" onClick={() => handleSingleProduct(request.productId._id)} style={{ cursor: 'pointer' }}>
                                         <div className="d-flex align-items-center">
                                             <img
                                                 src={request.productId.imageUrl ? request.productId.imageUrl : noImage}
@@ -183,7 +192,7 @@ const ProductTableRec = () => {
                                                 alt={request.buyerId.name}
                                                 style={{ width: '45px', height: '45px' }}
                                             />
-                                            <div className="ms-3">
+                                            <div className="ms-3" onClick={() => handleSingleUser(request.buyerId._id)} style={{ cursor: 'pointer' }}>
                                                 <p className="fw-bold mb-1">{request.buyerId.name}</p>
                                                 <p className="text-muted mb-0">{request.buyerId.email}</p>
                                             </div>

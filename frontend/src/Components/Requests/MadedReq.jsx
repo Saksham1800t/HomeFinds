@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 import noImage from '../../Images/noImage.jpeg';
 import user from '../../Images/user.jpg';
 import recp_logo from '../../Images/rec_logo.png';
@@ -6,6 +7,7 @@ import axios from 'axios';
 
 const ProductTable = () => {
     const [requests, setRequests] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchRequests = async () => {
@@ -137,6 +139,14 @@ const ProductTable = () => {
         printWindow.document.close();
     };
 
+    const handleSingleUser = (id) => {
+        navigate(`/singleuser/${id}`);
+    }
+
+    const handleSingleProduct = (id) => {
+        navigate(`/singleproduct/${id}`);
+    }
+
     return (
         <>
             {requests.length === 0 ? (
@@ -149,6 +159,7 @@ const ProductTable = () => {
                             <th className="text-left">Product Info</th>
                             <th className="text-left">Price</th>
                             <th className="text-left">Seller</th>
+                            <th className="text-left">For</th>
                             <th className="text-center">Status</th>
                             <th className="text-center">Actions</th>
                         </tr>
@@ -157,7 +168,7 @@ const ProductTable = () => {
                         {requests.map((request, index) => (
                             <tr key={request._id}>
                                 <td>{index + 1}</td>
-                                <td className="text-left">
+                                <td className="text-left" onClick={() => handleSingleProduct(request.productId._id)} style={{ cursor: 'pointer' }}>
                                     <div className="d-flex align-items-center">
                                         <img
                                             src={request.productId.imageUrl || noImage}
@@ -172,7 +183,7 @@ const ProductTable = () => {
                                     </div>
                                 </td>
                                 <td>Rs. {request.productId.price}</td>
-                                <td className="text-left">
+                                <td className="text-left" onClick={() => handleSingleUser(request.sellerId._id)} style={{ cursor: 'pointer' }}>
                                     <div className="d-flex align-items-center">
                                         <img
                                             src={request.sellerId.userImageUrl || user}
@@ -186,6 +197,7 @@ const ProductTable = () => {
                                         </div>
                                     </div>
                                 </td>
+                                <td>{request.productId.type}</td>
                                 <td className="text-center">
                                     <span className={`badge rounded-pill d-inline ${getStatusClass(request.status)}`}>
                                         {request.status}
