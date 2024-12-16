@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "./Sidebar";
 import axios from 'axios';
+import NavbarS from "../LandingPages/Navbar";
 import {useNavigate} from 'react-router-dom';
 
 export default function AllUsers() {
@@ -38,6 +39,7 @@ export default function AllUsers() {
 
     return (
         <>
+            <NavbarS />
             <Sidebar />
             <h1>All Users</h1>
             <table className="table">

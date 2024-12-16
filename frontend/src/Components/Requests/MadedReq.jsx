@@ -1,9 +1,10 @@
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import noImage from '../../Images/noImage.jpeg';
 import user from '../../Images/user.jpg';
 import recp_logo from '../../Images/rec_logo.png';
 import axios from 'axios';
+import NavbarS from '../LandingPages/Navbar';
 
 const ProductTable = () => {
     const [requests, setRequests] = useState([]);
@@ -149,6 +150,7 @@ const ProductTable = () => {
 
     return (
         <>
+            <NavbarS />
             {requests.length === 0 ? (
                 <h2 className="text-center text-muted my-5">There is no Request made by you...</h2>
             ) : (
@@ -178,7 +180,11 @@ const ProductTable = () => {
                                         />
                                         <div className="ms-3">
                                             <p className="fw-bold mb-1">{request.productId.pName}</p>
-                                            <p className="text-muted mb-0">{request.productId.description}</p>
+                                            <p className="text-muted mb-0">
+                                                {request.productId.description.length > 25
+                                                    ? `${request.productId.description.slice(0, 25)}...`
+                                                    : request.productId.description}
+                                            </p>
                                         </div>
                                     </div>
                                 </td>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FaCartPlus, FaUserPlus } from "react-icons/fa6";
 import { IoMdGitPullRequest } from "react-icons/io";
 import { MdProductionQuantityLimits } from "react-icons/md";
+import NavbarS from '../LandingPages/Navbar';
 import '../../CSS/Dashboard.css';
 import Sidebar from './Sidebar';
 import axios from 'axios';
@@ -40,6 +41,7 @@ function Dashboard() {
     return (
         <>
             <div>
+                <NavbarS />
                 <Sidebar />
             </div>
             <div className="dash">

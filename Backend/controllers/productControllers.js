@@ -1,5 +1,6 @@
 const productModel = require('../models/products');
 const userModel = require('../models/users');
+const requestModel = require('../models/request');
 const cloudinary = require("../configs/cloudinary");
 const fs = require('fs');
 
@@ -122,6 +123,8 @@ module.exports.deleteProduct = async (req, res) => {
                 console.log('Failed to delete image from Cloudinary:', deleteResult);
             }
         }
+
+        await requestModel.deleteMany({ productId: productId });
 
         res.json({ message: "Product deleted successfully" });
     } catch (error) {

@@ -1,78 +1,67 @@
-.navbar {
-    background: rgb(230, 230, 230);
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    padding: 20px 0;
-    height:100px;
-    
-   
-  }
-  
-  .navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 30px; 
-  }
-         
-  .logo h1 { 
-    color:white;
-    font-size: 24px;
-    margin: 0;
-  }
-  
-  .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-  }
-  
-  .nav-links li a {
-    color:black;
-    text-decoration: none;
-    
-    font-size: 18px;
-  }
-  button{
-    text-decoration: none;
-    background:transparent;
-    border:1px solid black;
-    margin-left: 28rem;
-    height:40px;
-    width:90px;
-    border-radius:5px;
-    box-shadow:rgb(240, 208, 150) 0px 4px 10px ;
+.navbar_Navbar {
+  background: rgb(246, 244, 244);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  padding: 10px 0;
+  height: 63px;
+  border: 1px solid black;
+  border-radius: 0rem 0rem .3rem .3rem;
+}
 
-    
-  }
-  
-  .nav-links li {
-    text-decoration: underline;
-    list-style:none;
-  }
-  button:hover{
-    box-shadow: rgba(0, 0, 0, 0.48) 5px 6px 10px 0px;
-    transition:800ms;
-  }
-  .image{
-    width:50px;
-    height:50px;
-    border-radius:100%;
-    margin-left:2rem;
-  }
-  .signup{
-    margin-left:3rem;
-  }
-  .logo{
-    width:140px;
-    height:60px;
-   
-    
-    background-color: black;
-    border-radius: 20px;
- 
-  }
-  .right{
-    list-style:none;
-  }
+.navbar-container_Navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0px;
+}
+
+.nav-links_Navbar {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  color: black;
+}
+
+.nav-links_Navbar li a {
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.login_Navbar{
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  margin: 0rem 0 0 34rem;
+  height: 40px;
+  width: 70px;
+  border-radius: 5px;
+  border: 2px solid rgb(22, 15, 15);
+  padding: 10px 69px 30px 20px;
+}
+
+.nav-links_Navbar li {
+  text-decoration: none;
+  list-style: none;
+}
+
+.login_Navbar:hover {
+  box-shadow: rgba(0, 0, 0, 0.48) 5px 6px 10px 0px;
+  transition: 800ms;
+}
+
+
+.image_Navbar {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  margin: -.31rem 1rem 0 2rem;
+}
+
+.signup_Navbar {
+  margin-left: 1rem;
+}
+
+.right_Navbar {
+  list-style: none;
+}

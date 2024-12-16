@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import "../../CSS/ProductAdd.css";
 import cart from "../../Images/cart.jpg";
 import axios from 'axios';
+import NavbarS from "../LandingPages/Navbar";
 
 export default function UpdateProducts() {
     const { id } = useParams();
@@ -89,6 +90,7 @@ export default function UpdateProducts() {
 
     return (
         <>
+        <NavbarS />
             <div className='login-bg_Product_Add'>
                 <div>
                     <img src={cart} style={{ width: "500px", height: "500px ", marginLeft: "7rem", marginBottom: "10rem" }} alt="Cart" />
@@ -136,6 +138,7 @@ export default function UpdateProducts() {
                                 <option value="electronics">Electronics</option>
                                 <option value="clothing">Clothing</option>
                                 <option value="grocery">Grocery</option>
+                                <option value="toys">Toys</option>
                             </select>
                         </div>
 

@@ -17,7 +17,7 @@ function UpdateUser() {
         contact: '',
         address: '',
         pincode: '',
-        profileImage: null, // To handle profile image
+        profileImage: null, 
     });
 
     useEffect(() => {
@@ -36,7 +36,7 @@ function UpdateUser() {
                     contact: user.contact,
                     address: user.address,
                     pincode: user.pincode,
-                    profileImage: user.profileImage || null, // Display existing image if available
+                    profileImage: user.profileImage || null, 
                 });
             } catch (err) {
                 console.log(err);
@@ -64,7 +64,6 @@ function UpdateUser() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Prepare the form data for submission, including the profile image if selected
         const formData = new FormData();
         formData.append('name', form.name);
         formData.append('userName', form.userName);
@@ -73,14 +72,14 @@ function UpdateUser() {
         formData.append('address', form.address);
         formData.append('pincode', form.pincode);
         if (form.profileImage) {
-            formData.append('profileImage', form.profileImage); // Append profile image
+            formData.append('profileImage', form.profileImage); 
         }
 
         try {
             const response = await axios.post(process.env.REACT_APP_BACKEND_URL + '/users/updateUser', formData, {
                 headers: {
                     Authorization: `Bearer ${token}`,
-                    'Content-Type': 'multipart/form-data', // Ensure the correct content type for file upload
+                    'Content-Type': 'multipart/form-data', 
                 },
             });
             console.log(response);
@@ -214,7 +213,7 @@ function UpdateUser() {
                                     type="file"
                                     name="profileImage"
                                     accept="image/*"
-                                    onChange={handleImageChange} // Handle image change
+                                    onChange={handleImageChange} 
                                 />
                             </div>
 

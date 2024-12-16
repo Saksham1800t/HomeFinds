@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import '../../CSS/Navbar2.css'; // Import CSS for additional styling
-import logo from '../../Images/logo.png';
+import '../../CSS/Navbar2.css';
+import logo from '../../Images/rec_logo.png';
 import profile from '../../Images/user.jpg';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';

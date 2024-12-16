@@ -3,6 +3,7 @@ import '../../CSS/UserProfile.css';
 import userImage from '../../Images/user.jpg';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+import NavbarS from '../LandingPages/Navbar';
 
 const SingleUser = () => {
     const navigate = useNavigate();
@@ -33,6 +34,7 @@ const SingleUser = () => {
 
     return (
         <>
+        <NavbarS />
             <div className="body_UserProfile">
                 <div className="page-content page-container" id="page-content">
                     <div className="padding">

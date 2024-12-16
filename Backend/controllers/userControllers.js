@@ -1,5 +1,6 @@
 const userModel = require('../models/users');
 const productModel = require('../models/products');
+const requestModel = require('../models/request.js');
 const bcryptUser = require('../services/bcryptSignUp');
 const bcryptLogin = require('../services/bcryptLogIn');
 const upload = require('../configs/multer');
@@ -109,7 +110,7 @@ module.exports.updateUserData = async (req, res) => {
             if (req.file) {
                 if (user.userImageUrl) {
                     const urlSegments = user.userImageUrl.split('/');
-                    const publicIdWithVersion = urlSegments.slice(-2).join('/').split('.')[0]; 
+                    const publicIdWithVersion = urlSegments.slice(-2).join('/').split('.')[0];
 
                     const deleteResult = await cloudinary.uploader.destroy(publicIdWithVersion);
                     if (deleteResult.result !== 'ok') {
@@ -149,7 +150,7 @@ module.exports.deleteUser = async (req, res) => {
         }
         if (user.userImageUrl) {
             const urlSegments = user.userImageUrl.split('/');
-            const publicIdWithVersion = urlSegments.slice(-2).join('/').split('.')[0]; 
+            const publicIdWithVersion = urlSegments.slice(-2).join('/').split('.')[0];
 
             const deleteResult = await cloudinary.uploader.destroy(publicIdWithVersion);
             if (deleteResult.result !== 'ok') {
@@ -166,12 +167,19 @@ module.exports.deleteUser = async (req, res) => {
 
                 const deleteResult = await cloudinary.uploader.destroy(publicIdWithVersion);
                 if (deleteResult.result !== 'ok') {
-                    console.log(`Failed to delete product image (${product._id}) from Cloudinary:`, deleteResult);
+                    console.log(`Failed to delete product image (${product.pName}) from Cloudinary:`, deleteResult);
                 }
             }
+            await requestModel.deleteMany({ productId: product._id });
         }
 
         await productModel.deleteMany({ addedBy: userId });
+        await requestModel.deleteMany({
+            $or: [
+                { buyerId: userId },
+                { sellerId: userId }
+            ]
+        });
         await userModel.findByIdAndDelete(userId);
         res.json({ message: "User and associated products deleted successfully" });
     }

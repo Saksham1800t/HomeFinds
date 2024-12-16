@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../../CSS/Buy&RentPage&Donate.css";
 import noImage from "../../Images/noImage.jpeg";
 import { useNavigate } from "react-router-dom";
+import NavbarS from "../LandingPages/Navbar";
 import axios from 'axios';
 
 export default function BuyPage() {
@@ -47,8 +48,9 @@ export default function BuyPage() {
 
     return (
         <>
-            <div className="container h-100">
-                <div className="d-flex justify-content-center h-100">
+        <NavbarS/>
+            <div>
+                <div className="d-flex" style={{ marginLeft: "1rem" }}>
                     <div className="search_BuyRent">
                         <input className="search_input_BuyRent fs-5" type="text" placeholder="Search for buy products here..." value={search} onChange={(e) => setSearch(e.target.value)} />
                         <i className="search_icon"><i className="fa fa-search"></i></i>

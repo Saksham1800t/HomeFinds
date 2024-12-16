@@ -4,7 +4,7 @@ import { FaBars, FaHome, FaUser } from "react-icons/fa";
 import { FaUserPlus } from "react-icons/fa6";
 import { MdSupervisedUserCircle } from "react-icons/md";
 import '../../CSS/Sidebar.css'; 
-import profile from '../../Images/profile.jpg';
+import profile from '../../Images/user.jpg';
 import { Link } from 'react-router-dom';
 
 const Admin = () => {

@@ -4,6 +4,7 @@ import userImage from '../../Images/user.jpg';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import noImage from '../../Images/noImage.jpeg';
+import NavbarS from '../LandingPages/Navbar';
 
 const UserProfile = () => {
     const navigate = useNavigate();
@@ -81,6 +82,7 @@ const UserProfile = () => {
 
     return (
         <>
+        <NavbarS />
             <div className="body_UserProfile">
                 <div className="page-content page-container" id="page-content">
                     <div className="padding">

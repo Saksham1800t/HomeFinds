@@ -3,6 +3,7 @@ import "../../CSS/ProductAdd.css";
 import cart from "../../Images/cart.jpg";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import NavbarS from '../LandingPages/Navbar';
 
 function ProductAdd() {
     const token = localStorage.getItem('token');
@@ -79,6 +80,7 @@ function ProductAdd() {
 
     return (
         <>
+            <NavbarS />
             <div className='login-bg_Product_Add'>
                 <div>
                     <img src={cart} style={{ width: "500px", height: "500px ", marginLeft: "7rem", marginBottom: "10rem" }} alt="Cart" />

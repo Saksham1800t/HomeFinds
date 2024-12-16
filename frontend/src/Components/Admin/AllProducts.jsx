@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "./Sidebar";
 import axios from 'axios';
+import Navbar from "../LandingPages/Navbar";
 import { useNavigate } from 'react-router-dom';
 
 export default function AllProducts() {
@@ -12,7 +13,7 @@ export default function AllProducts() {
         const getProducts = async () => {
             try {
                 const response = await axios.post(
-                    process.env.REACT_APP_BACKEND_URL + '/get-all-products',
+                    process.env.REACT_APP_BACKEND_URL + '/products/get-all-products',
                     {},
                     {
                         headers: {
@@ -22,7 +23,7 @@ export default function AllProducts() {
                 );
                 const result = await response.data.products;
                 console.log(result);
-                
+
                 setProducts(result);
             } catch (err) {
                 console.log(err);
@@ -39,7 +40,12 @@ export default function AllProducts() {
 
     return (
         <>
-            <Sidebar />
+            <div>
+                <Navbar />
+            </div>
+            <div>
+                <Sidebar />
+            </div>
             <h1>All Products</h1>
             <table className="table">
                 <thead>
@@ -59,7 +65,7 @@ export default function AllProducts() {
                             <tr key={product.id}>
                                 <th scope="row">{index + 1}</th>
                                 <td>{product.pName}</td>
-                                <td className="text-truncate" style={{maxWidth: "150px"}}>{product.description}</td>
+                                <td className="text-truncate" style={{ maxWidth: "150px" }}>{product.description}</td>
                                 <td>{product.category}</td>
                                 <td>{product.price}</td>
                                 <td>{product.type}</td>

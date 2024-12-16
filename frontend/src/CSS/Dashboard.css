@@ -47,5 +47,5 @@
 .dash {
     display: grid;
     grid: 250px / 30rem auto;
-    margin: 7rem 0 0 25rem;
+    margin: 4rem 0 0 25rem;
 }
