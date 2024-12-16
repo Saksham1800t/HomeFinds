@@ -7,7 +7,6 @@ const upload = require('../configs/multer');
 
 router.use(cors());
 
-// router.post('/add-product', auth.verifyToken, productControllers.createProduct);
 router.post('/add-product', auth.verifyToken, upload.single('image'), productControllers.createProduct);
 router.post('/get-products', auth.verifyToken, productControllers.getAllProducts);
 router.post('/get-user-products', auth.verifyToken, productControllers.getUserProducts);

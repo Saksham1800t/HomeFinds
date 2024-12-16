@@ -2,5 +2,6 @@
 
 // const secretKey = crypto.randomBytes(64).toString('hex');
 
-const secretKey = "Saksham's secret";
+require('dotenv').config();
+const secretKey = process.env.JWT_SECRET;
 module.exports = secretKey; 
